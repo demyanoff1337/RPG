@@ -1,7 +1,7 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 require('dotenv').config();
@@ -9,7 +9,8 @@ const cors = require('cors');
 const { User, Person } = require('./db/models');
 const PORT = process.env.PORT ?? 3001;
 
-var app = express();
+const app = express();
+const userRouter = require('./routes/userRouter');
 
 app.use(logger('dev'));
 app.use(cors());
@@ -36,7 +37,7 @@ app.post('/login', async (req, res) => {
         return res.json({ exists: true, correct: true, user });
       }
       return res.json({ exists: true, correct: false });
-    } else { 
+    } else {
       return res.json({ exists: false });
     }
   } catch (e) {
@@ -55,6 +56,7 @@ app.get('/person/:id', async (req, res) => {
     return res.send(e);
   }
 });
+app.use('/user', userRouter);
 
 app.listen(PORT, () => {
   console.log(`Port ${PORT} started`);
