@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+.index-up {
+  z-index: 10;
+}
+
 .game {
   width: 100vw;
   height: 50vw;
@@ -22,14 +26,30 @@ body {
   width: 7vw;
   height: 7vw;
   border-radius: 7vw;
-  background-color: rgb(237, 209, 96);
+  background-color: rgb(233 209 77);
   outline: solid 0.2vw #b6b68a;
 }
 
 .btns:hover {
   cursor: pointer;
-  background-color: rgb(255 240 104);
+  background-color: rgb(254, 233, 118);
   outline: solid 0.2vw #f5f594;
+}
+
+.btns-def {
+  position: absolute;
+  font-size: 1.2vw;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 1vw 1vw 5vw 5vw;
+  background-color: rgb(222 213 178);
+  outline: solid 0.2vw #b6b68a;
+}
+
+.btns-def:hover {
+  cursor: pointer;
+  background-color: rgb(254, 249, 231);
+  outline: solid 0.2vw #f4f4db;
 }
 
 .show-btns {
@@ -47,6 +67,16 @@ body {
   background-repeat: no-repeat;
   background-position-x: -2vw;
   background-position-y: 0vw;
+  background-size: 8vw;
+}
+
+#top-def {
+  top: 22vw;
+  left: 19vw;
+  background-image: url(beaver-defend.svg);
+  background-repeat: no-repeat;
+  background-position-x: 0vw;
+  background-position-y: -1vw;
   background-size: 8vw;
 }
 
@@ -78,6 +108,16 @@ body {
   background-position-y: 0.7vw;
 }
 
+#mid-def {
+  top: 30vw;
+  left: 25vw;
+  background-image: url(apple-def.png);
+  background-size: 4.2vw;
+  background-position-x: 1.2vw;
+  background-repeat: no-repeat;
+  background-position-y: 0.7vw;
+}
+
 .mid-1 {
   animation: mid-1 0.3s linear;
 }
@@ -103,6 +143,16 @@ body {
   background-repeat: no-repeat;
   background-size: 11vw;
   background-position-x: -5vw;
+  background-position-y: 1.6vw;
+}
+
+#bottom-def {
+  top: 39.5vw;
+  left: 23vw;
+  background-image: url(fireball-def.png);
+  background-repeat: no-repeat;
+  background-size: 11vw;
+  background-position-x: 1vw;
   background-position-y: 1.6vw;
 }
 
@@ -285,6 +335,55 @@ body {
   display: none;
 }
 
+#bang-enemy {
+  position: absolute;
+  width: 6vw;
+  z-index: 1;
+}
+
+.bang-enemy {
+  display: none;
+}
+
+.bang-enemy-1 {
+  display: block;
+  width: 6vw;
+  top: 34vw;
+  left: 82vw;
+  animation: bang 0.27s linear;
+}
+
+.bang-enemy-2 {
+  display: block;
+  top: 31vw;
+  left: 80vw;
+  left: 82vw;
+  animation: bang 0.27s linear;
+}
+
+.bang-enemy-3 {
+  display: block;
+  width: 6vw;
+  top: 35.5vw;
+  left: 82vw;
+  animation: bang 0.27s linear;
+}
+
+@keyframes bang {
+  from {
+    width: 4vw;
+    opacity: 0.1;
+  }
+  50% {
+    width: 6vw;
+    opacity: 1;
+  }
+  to {
+    width: 4vw;
+    opacity: 0.1;
+  }
+}
+
 @keyframes question {
   from {
     font-size: 4.5vw;
@@ -296,6 +395,66 @@ body {
 
   to {
     font-size: 4.5vw;
+  }
+}
+
+.pers1-dodged {
+  opacity: 0.7;
+}
+
+.pers1-dodged-1 {
+  position: absolute;
+  width: 17vw;
+  top: 27.9vw;
+  left: 3.5vw;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.pers1-dodged-2 {
+  position: absolute;
+  width: 17vw;
+  top: 27.9vw;
+  left: 3.5vw;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.on-start-dodge {
+  display: none;
+}
+
+.on-charge-dodge-1 {
+  display: block;
+  animation: dodge-1 0.54s;
+}
+
+.on-charge-dodge-2 {
+  display: block;
+  animation: dodge-2 0.54s;
+}
+
+@keyframes dodge-1 {
+  from {
+    left: 3.5vw;
+  }
+  50% {
+    left: 0.5vw;
+  }
+  to {
+    left: 3.5vw;
+  }
+}
+
+@keyframes dodge-2 {
+  from {
+    left: 3.5vw;
+  }
+  50% {
+    left: -2.5vw;
+  }
+  to {
+    left: 3.5vw;
   }
 }
 
@@ -339,6 +498,13 @@ body {
   background-image: url(hedgehog-cast2.svg);
 }
 
+.p1-hitted {
+  background-image: url(hedgehog-hitted.svg);
+}
+
+
+/* --------------------------------- */
+
 .pers2 {
   width: 18vw;
   height: 20vw;
@@ -348,6 +514,243 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   transform: scaleX(-1);
+}
+
+.pers2-attack {
+  position: absolute;
+  width: 18vw;
+  top: 27vw;
+  z-index: 1;
+}
+
+.pers2-attack img {
+  transform: scaleX(-1);
+}
+
+.sd1-1 {
+  opacity: 0.6;
+}
+
+.sd1-2 {
+  opacity: 0.4;
+}
+
+.sd1-3 {
+  opacity: 0.2;
+}
+
+.on-start-2 {
+  display: none;
+  left: 71vw;
+}
+
+.on-charge-2 {
+  display: block;
+  animation: on-charge-2 0.5s linear;
+}
+
+@keyframes on-charge-2 {
+  from {
+    left: 67vw;
+  }
+
+  to {
+    left: 12vw;
+  }
+}
+
+.pers2-throw {
+  position: absolute;
+  z-index: 1;
+}
+
+.pers2-throw img {
+  width: 6vw;
+}
+
+.on-start-throw-2 {
+  display: none;
+  top: 26vw;
+  left: 8vw;
+  transform: rotate(320deg);
+}
+
+.on-charge-throw-2 {
+  display: block;
+  animation: throw-2 0.6s linear;
+}
+
+@keyframes throw-2 {
+  from {
+    top: 26vw;
+    left: 81vw;
+    transform: rotate(320deg);
+  }
+
+  50% {
+    top: 19vw;
+    left: 47vw;
+    transform: rotate(195deg);
+  }
+
+  to {
+    top: 29vw;
+    left: 13vw;
+    transform: rotate(70deg);
+  }
+}
+
+.pers2-fireball {
+  position: absolute;
+  z-index: 3;
+}
+
+.pers2-fireball img {
+  width: 13vw;
+  transform: scaleX(-1);
+}
+
+.on-start-fire-2 {
+  display: none;
+  top: 36vw;
+  left: 73vw;
+}
+
+.on-charge-fire-2 {
+  display: block;
+  animation: fire-2 0.55s linear;
+}
+
+.sfd-1 {
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.sfd-2 {
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes fire-2 {
+  from {
+    top: 36vw;
+    left: 73vw;
+  }
+
+  to {
+    top: 36vw;
+    left: 13.3vw;
+  }
+}
+
+.question-mark-2 {
+  position: absolute;
+  font-weight: bold;
+  font-size: 4.8vw;
+  top: 23.5vw;
+  left: 84.8vw;
+  color: white;
+  text-shadow: 0.1vw 0.1vw 0.2vw black;
+  animation: question 1s linear infinite;
+}
+
+.q-show {
+  display: block;
+}
+
+.q-hide {
+  display: none;
+}
+
+#bang-me {
+  position: absolute;
+  width: 6vw;
+  z-index: 1;
+}
+
+.bang-me {
+  display: none;
+}
+
+.bang-me-1 {
+  display: block;
+  width: 6vw;
+  top: 34vw;
+  left: 11vw;
+  animation: bang 0.27s linear;
+}
+
+.bang-me-2 {
+  display: block;
+  top: 31vw;
+  left: 12vw;
+  animation: bang 0.27s linear;
+}
+
+.bang-me-3 {
+  display: block;
+  width: 6vw;
+  top: 35.5vw;
+  left: 12vw;
+  animation: bang 0.27s linear;
+}
+
+.pers2-dodged-1 {
+  position: absolute;
+  width: 17vw;
+  top: 27.9vw;
+  left: 78.5vw;
+  z-index: 0;
+  opacity: 0.5;
+  transform: scaleX(-1);
+}
+
+.pers2-dodged-2 {
+  position: absolute;
+  width: 17vw;
+  top: 27.9vw;
+  left: 78.5vw;
+  z-index: 0;
+  opacity: 0.3;
+  transform: scaleX(-1);
+}
+
+.on-start-dodge-1 {
+  display: none;
+}
+
+.on-charge-dodge-e1 {
+  display: block;
+  animation: dodge-e1 0.54s;
+}
+
+.on-charge-dodge-e2 {
+  display: block;
+  animation: dodge-e2 0.54s;
+}
+
+@keyframes dodge-e1 {
+  from {
+    left: 78.5vw;
+  }
+  50% {
+    left: 81.5vw;
+  }
+  to {
+    left: 78.5vw;
+  }
+}
+
+@keyframes dodge-e2 {
+  from {
+    left: 78.5vw;
+  }
+  50% {
+    left: 84.5vw;
+  }
+  to {
+    left: 78.5vw;
+  }
 }
 
 .p2-1 {
