@@ -1,0 +1,395 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game {
+  width: 100vw;
+  height: 50vw;
+  overflow: hidden;
+  background-color: aliceblue;
+  position: relative;
+}
+
+.btns {
+  position: absolute;
+  font-size: 1.2vw;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 7vw;
+  background-color: rgb(237, 209, 96);
+  outline: solid 0.2vw #b6b68a;
+}
+
+.btns:hover {
+  cursor: pointer;
+  background-color: rgb(255 240 104);
+  outline: solid 0.2vw #f5f594;
+}
+
+.show-btns {
+  display: block;
+}
+
+.hide-btns {
+  display: none;
+}
+
+#top {
+  top: 22vw;
+  left: 19vw;
+  background-image: url(hedgehog-attack.svg);
+  background-repeat: no-repeat;
+  background-position-x: -2vw;
+  background-position-y: 0vw;
+  background-size: 8vw;
+}
+
+.top-1 {
+  animation: top-1 0.3s linear;
+}
+
+@keyframes top-1 {
+  from {
+    opacity: 0;
+    top: 26vw;
+    left: 15vw;
+  }
+
+  to {
+    opacity: 1;
+    top: 22vw;
+    left: 19vw;
+  }
+}
+
+#mid {
+  top: 30vw;
+  left: 25vw;
+  background-image: url(apple.png);
+  background-size: 4.2vw;
+  background-position-x: 1.2vw;
+  background-repeat: no-repeat;
+  background-position-y: 0.7vw;
+}
+
+.mid-1 {
+  animation: mid-1 0.3s linear;
+}
+
+@keyframes mid-1 {
+  from {
+    opacity: 0;
+    top: 31vw;
+    left: 18vw;
+  }
+
+  to {
+    opacity: 1;
+    top: 30vw;
+    left: 25vw;
+  }
+}
+
+#bottom {
+  top: 39.5vw;
+  left: 23vw;
+  background-image: url(fireball.png);
+  background-repeat: no-repeat;
+  background-size: 11vw;
+  background-position-x: -5vw;
+  background-position-y: 1.6vw;
+}
+
+.bottom-1 {
+  animation: bot-1 0.3s linear;
+}
+
+@keyframes bot-1 {
+  from {
+    opacity: 0;
+    top: 36vw;
+    left: 18vw;
+  }
+
+  to {
+    opacity: 1;
+    top: 39.5vw;
+    left: 23vw;
+  }
+}
+
+.back {
+  height: 60vw;
+  margin-top: -10vw;
+}
+
+.pers {
+  position: absolute;
+
+}
+
+.pers1 {
+  width: 18vw;
+  height: 20vw;
+  left: 3vw;
+  top: 28vw;
+  display: flex;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pers1-attack {
+  position: absolute;
+  width: 18vw;
+  top: 27vw;
+  z-index: 1;
+}
+
+.s1-1 {
+  opacity: 0.6;
+}
+
+.s1-2 {
+  opacity: 0.4;
+}
+
+.s1-3 {
+  opacity: 0.2;
+}
+
+.on-start {
+  display: none;
+  left: 16vw;
+}
+
+.on-charge {
+  display: block;
+  animation: on-charge 0.5s linear;
+}
+
+@keyframes on-charge {
+  from {
+    left: 16vw;
+  }
+
+  to {
+    left: 71vw;
+  }
+}
+
+.pers1-throw {
+  position: absolute;
+  z-index: 1;
+}
+
+.pers1-throw img {
+  width: 6vw;
+}
+
+.on-start-throw {
+  display: none;
+  top: 26vw;
+  left: 8vw;
+  transform: rotate(320deg) scaleX(-1);
+}
+
+.on-charge-throw {
+  display: block;
+  animation: throw-1 0.6s linear;
+}
+
+@keyframes throw-1 {
+  from {
+    top: 26vw;
+    left: 8vw;
+    transform: rotate(320deg) scaleX(-1);
+  }
+
+  50% {
+    top: 19vw;
+    left: 48vw;
+    transform: rotate(445deg) scaleX(-1);
+  }
+
+  to {
+    top: 29vw;
+    left: 78vw;
+    transform: rotate(570deg) scaleX(-1);
+  }
+}
+
+.pers1-fireball {
+  position: absolute;
+  z-index: 3;
+}
+
+.pers1-fireball img {
+  width: 13vw;
+}
+
+.on-start-fire {
+  display: none;
+  top: 36vw;
+  left: 14vw;
+}
+
+.on-charge-fire {
+  display: block;
+  animation: fire-1 0.55s linear;
+}
+
+.sf-1 {
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.sf-2 {
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes fire-1 {
+  from {
+    top: 36vw;
+    left: 14vw;
+  }
+
+  to {
+    top: 36vw;
+    left: 73vw;
+  }
+}
+
+.question-mark-1 {
+  position: absolute;
+  font-weight: bold;
+  font-size: 4.8vw;
+  top: 23.5vw;
+  left: 11.8vw;
+  color: white;
+  text-shadow: 0.1vw 0.1vw 0.2vw black;
+  animation: question 1s linear infinite;
+}
+
+.q-show {
+  display: block;
+}
+
+.q-hide {
+  display: none;
+}
+
+@keyframes question {
+  from {
+    font-size: 4.5vw;
+  }
+
+  50% {
+    font-size: 5vw;
+  }
+
+  to {
+    font-size: 4.5vw;
+  }
+}
+
+.p1-1 {
+  background-image: url(hedgehog1.svg);
+}
+
+.p1-2 {
+  background-image: url(hedgehog2.svg);
+}
+
+.p1-3 {
+  background-image: url(hedgehog3.svg);
+}
+
+.p1-4 {
+  background-image: url(hedgehog4.svg);
+}
+
+.p1-5 {
+  background-image: url(hedgehog5.svg);
+}
+
+.p1-attack-prev {
+  background-image: url(hedgehog-attack-prev.svg);
+}
+
+.p1-mid-1 {
+  background-image: url(hedgehog-throw1.svg);
+}
+
+.p1-mid-2 {
+  background-image: url(hedgehog-throw2.svg);
+}
+
+.p1-bot-1 {
+  background-image: url(hedgehog-cast1.svg);
+}
+
+.p1-bot-2 {
+  background-image: url(hedgehog-cast2.svg);
+}
+
+.pers2 {
+  width: 18vw;
+  height: 20vw;
+  left: 78vw;
+  top: 28vw;
+  display: flex;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+}
+
+.p2-1 {
+  background-image: url(beaver1.svg);
+}
+
+.p2-2 {
+  background-image: url(beaver2.svg);
+}
+
+.p2-3 {
+  background-image: url(beaver3.svg);
+}
+
+.p2-4 {
+  background-image: url(beaver4.svg);
+}
+
+.p2-5 {
+  background-image: url(beaver5.svg);
+}
+
+.p2-attack-prev {
+  background-image: url(beaver-attack-prev.svg);
+}
+
+.p2-mid-1 {
+  background-image: url(beaver-throw1.svg);
+}
+
+.p2-mid-2 {
+  background-image: url(beaver-throw2.svg);
+}
+
+.p2-bot-1 {
+  background-image: url(beaver-cast1.svg);
+}
+
+.p2-bot-2 {
+  background-image: url(beaver-cast2.svg);
+}
+
+.p2-hitted {
+  background-image: url(beaver-hitted.svg);
+}

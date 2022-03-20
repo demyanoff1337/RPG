@@ -32,7 +32,7 @@ const Home = () => {
         <div id="lvl-label">уровень</div>
         <div id="lvl">4</div>
         <div id="person">
-          <img id="person-img" src="https://cdn-icons-png.flaticon.com/512/427/427506.png" alt="ima"/>
+          <img id="person-img" src="hedgehog1.svg" alt="hedghehog"/>
         </div>
         {/* <div id="items">
           <div id="weapon">
