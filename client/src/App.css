@@ -1258,3 +1258,112 @@ body {
 .p2-hitted {
   background-image: url(../public/beaver-hitted.svg);
 }
+
+
+/* ------------------------  */
+
+.my-health-bar {
+  position: absolute;
+  top: 5.3vw;
+  left: 5.5vw;
+  width: 33vw;
+  height: 3vw;
+  outline: solid 0.2vw black;
+  border-radius: 1vw;
+}
+
+.enemy-health-bar {
+  position: absolute;
+  top: 5.3vw;
+  left: 61.5vw;
+  width: 33vw;
+  height: 3vw;
+  outline: solid 0.2vw black;
+  border-radius: 1vw;
+}
+
+.my-nickname {
+  position: absolute;
+  color: white;
+  font-size: 2.7vw;
+  top: 1.7vw;
+  left: 6.5vw;
+  text-shadow: 0.1vw 0.1vw 0.5vw black;
+}
+
+.enemy-nickname {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 2.7vw;
+  top: 1.7vw;
+  right: 6.5vw;
+  text-shadow: 0.1vw 0.1vw 0.5vw black;
+}
+
+.my-hitted {
+  position: absolute;
+  color: #ec6137;
+  font-size: 4vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 24vw;
+  left: 7vw;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.my-hitted-start {
+  display: none;
+}
+
+.my-hitted-charge {
+  display: block;
+  animation: my-hitted 0.6s linear;
+}
+
+@keyframes my-hitted {
+  from {
+    top: 24vw;
+    left: 7vw;
+  }
+
+  to {
+    top: 17vw;
+    left: 6vw;
+    opacity: 0.5;
+  }
+}
+
+.enemy-hitted {
+  position: absolute;
+  color: #ec6137;
+  font-size: 4vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 24vw;
+  right: 8vw;
+  z-index: 1;
+  transform: rotate(4deg);
+}
+
+.enemy-hitted-start {
+  display: none;
+}
+
+.enemy-hitted-charge {
+  display: block;
+  animation: enemy-hitted 0.6s linear;
+}
+
+@keyframes enemy-hitted {
+  from {
+    top: 24vw;
+    right: 8vw;
+  }
+
+  to {
+    top: 17vw;
+    right: 7vw;
+    opacity: 0.5;
+  }
+}

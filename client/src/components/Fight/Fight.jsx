@@ -1,9 +1,10 @@
+import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
 import { useEffect, useState } from "react";
 
 const Fight = () => {
 
   const me = {
-    nickname: 'dimon1337',
+    nickname: 'EZHII!',
     level: 13,
     exp: 1337,
     HP: 777,
@@ -13,12 +14,28 @@ const Fight = () => {
     money: 2345,
   }
 
+  function generateEnemy() {
+    return {
+      nickname: 'ihatehedghehogs',
+      level: me.level + Math.floor(Math.random() * 3 - 1),
+      HP: me.HP + Math.floor(Math.random() * (Math.floor(me.HP * 0.25) * 2) - Math.floor(me.HP * 0.25)),
+      damage: me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
+      armor: me.armor + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
+      critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.1) * 2) - Math.floor(me.critical * 0.1)),
+    }
+  }
+
+  const enemy = generateEnemy();
+
   const [winner, setWinner] = useState('noone');
   const [gameOn, setGameOn] = useState(true);
+  let myHealth = me.HP;
+  let enemyHealth = enemy.HP;
 
   function script() {
     let botMove = Math.floor(Math.random() * 3);
     let myMove;
+    let gameIsOn = true;
   
     const buttons1 = document.querySelector('.attacks');
     const buttons2 = document.querySelector('.defend');
@@ -105,6 +122,113 @@ const Fight = () => {
       'beaver3.svg',
       'beaver2.svg',
     ];
+
+    const rgbs = [
+      [200, 100],
+      [200, 102],
+      [200, 104],
+      [200, 106],
+      [200, 108],
+      [200, 110],
+      [200, 112],
+      [200, 114],
+      [200, 116],
+      [200, 118],
+      [200, 120],
+      [200, 122],
+      [200, 124],
+      [200, 126],
+      [200, 128],
+      [200, 130],
+      [200, 132],
+      [200, 134],
+      [200, 136],
+      [200, 138],
+      [200, 140],
+      [200, 142],
+      [200, 144],
+      [200, 146],
+      [200, 148],
+      [200, 150],
+      [200, 152],
+      [200, 154],
+      [200, 156],
+      [200, 158],
+      [200, 160],
+      [200, 162],
+      [200, 164],
+      [200, 166],
+      [200, 168],
+      [200, 170],
+      [200, 172],
+      [200, 174],
+      [200, 176],
+      [200, 178],
+      [200, 180],
+      [200, 182],
+      [200, 184],
+      [200, 186],
+      [200, 188],
+      [200, 190],
+      [200, 192],
+      [200, 194],
+      [200, 196],
+      [200, 198],
+
+      [100, 200],
+      [198, 200],
+      [196, 200],
+      [194, 200],
+      [192, 200],
+      [190, 200],
+      [188, 200],
+      [186, 200],
+      [184, 200],
+      [182, 200],
+      [180, 200],
+      [178, 200],
+      [176, 200],
+      [174, 200],
+      [172, 200],
+      [170, 200],
+      [168, 200],
+      [166, 200],
+      [164, 200],
+      [162, 200],
+      [160, 200],
+      [158, 200],
+      [156, 200],
+      [154, 200],
+      [152, 200],
+      [150, 200],
+      [148, 200],
+      [146, 200],
+      [144, 200],
+      [142, 200],
+      [140, 200],
+      [138, 200],
+      [136, 200],
+      [134, 200],
+      [132, 200],
+      [130, 200],
+      [128, 200],
+      [126, 200],
+      [124, 200],
+      [122, 200],
+      [120, 200],
+      [118, 200],
+      [116, 200],
+      [114, 200],
+      [112, 200],
+      [110, 200],
+      [108, 200],
+      [106, 200],
+      [104, 200],
+      [102, 200],
+      [100, 200],
+      
+    ]
+    
     let pers1i = 0;
     let pers2i = 2;
     let idle = [true, true];
@@ -115,6 +239,15 @@ const Fight = () => {
     const topDefend = document.getElementById('top-def');
     const midDefend = document.getElementById('mid-def');
     const bottomDefend = document.getElementById('bottom-def');
+
+    const myHealthBar = document.querySelector('.my-health-bar');
+    myHealthBar.style.background = `linear-gradient(to right, rgb(100, 200, 52) 100%, rgb(122, 122, 115) 100%)`;
+
+    const enemyHealthBar = document.querySelector('.enemy-health-bar');
+    enemyHealthBar.style.background = `linear-gradient(to left, rgb(100, 200, 52) 100%, rgb(122, 122, 115) 100%)`
+
+    const myHitted = document.querySelector('.my-hitted');
+    const enemyHitted = document.querySelector('.enemy-hitted');
   
     function switchPers1() {
       switch (pers1i) {
@@ -523,9 +656,7 @@ const Fight = () => {
       topAttack.classList.add('top-1');
       midAttack.classList.add('mid-1');
       bottomAttack.classList.add('bottom-1');
-      setTimeout(() => {
-        onQuestionMark1();
-      }, 300);
+      onQuestionMark1();
     }
   
     function hideButtons2() {
@@ -546,12 +677,28 @@ const Fight = () => {
       topDefend.classList.add('top-1');
       midDefend.classList.add('mid-1');
       bottomDefend.classList.add('bottom-1');
-      setTimeout(() => {
-        onQuestionMark2();
-      }, 300);
+      onQuestionMark2();
     }
   
     function pers1Hitted(bang) {
+      const damage = enemy.damage + Math.floor(Math.random() * (Math.floor(enemy.damage * 0.05) * 2) - Math.floor(enemy.damage * 0.05));
+      myHitted.innerText = `-${damage}`;
+      myHitted.classList.remove('my-hitted-start');
+      myHitted.classList.add('my-hitted-charge');
+      setTimeout(() => {
+        myHitted.classList.remove('my-hitted-charge');
+        myHitted.classList.add('my-hitted-start');
+      }, 600);
+
+      if (damage > myHealth) {
+        myHealth = 0;
+      } else {
+        myHealth -= damage;
+      }
+      const hitDamage = Math.floor((myHealth / me.HP) * 100);
+      myHealthBar.style.removeProperty('background');
+      myHealthBar.style.background = `linear-gradient(to right, rgb(${rgbs[hitDamage][0]}, ${rgbs[hitDamage][1]}, 52) ${hitDamage}%, rgb(122, 122, 115) ${hitDamage}%)`;
+
       idle[0] = false;
       pers1.classList.remove(pers1.classList[2]);
       pers1.classList.add('p1-hitted');
@@ -572,6 +719,25 @@ const Fight = () => {
     }
   
     function pers2Hitted(bang) {
+      const damage = me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.05) * 2) - Math.floor(me.damage * 0.05));
+      enemyHitted.innerText = `-${damage}`;
+      enemyHitted.classList.remove('enemy-hitted-start');
+      enemyHitted.classList.add('enemy-hitted-charge');
+      setTimeout(() => {
+        enemyHitted.classList.remove('enemy-hitted-charge');
+        enemyHitted.classList.add('enemy-hitted-start');
+      }, 600);
+
+      if (damage > enemyHealth) {
+        enemyHealth = 0;
+      } else {
+        enemyHealth -= damage;
+      }
+      const hitDamage = Math.floor((enemyHealth / enemy.HP) * 100);
+
+      enemyHealthBar.style.removeProperty('background');
+      enemyHealthBar.style.background = `linear-gradient(to left, rgb(${rgbs[hitDamage][0]}, ${rgbs[hitDamage][1]}, 52) ${hitDamage}%, rgb(122, 122, 115) ${hitDamage}%)`;
+
       idle[1] = false;
       pers2.classList.remove(pers2.classList[2]);
       pers2.classList.add('p2-hitted');
@@ -635,7 +801,6 @@ const Fight = () => {
     });
   
     topDefend.addEventListener('click', (e) => {
-      console.log('def')
       myMove = 0;
       switchDefend();
     });
@@ -681,6 +846,16 @@ const Fight = () => {
 
   const gameOnComponent = (<>
     <div id="fight"></div>
+
+      <div class="my-health-bar"></div>
+      <div class="my-nickname">{me.nickname}</div>
+
+      <div class="enemy-health-bar" ></div>
+      <div class="enemy-nickname">{enemy.nickname}</div>
+
+      <div class="my-hitted my-hitted-start"></div>
+      <div class="enemy-hitted enemy-hitted-start">-150</div>
+
       <div class="attacks show-btns">
   
   <button type="button" id="top" class="btns"></button>
