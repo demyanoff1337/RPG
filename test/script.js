@@ -6,6 +6,8 @@ let gameOver = false;
 let botMove = Math.floor(Math.random() * 3);
 let myMove;
 
+alert('dsa');
+
 const buttons1 = document.querySelector('.attacks');
 const buttons2 = document.querySelector('.defend');
 

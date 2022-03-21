@@ -12,7 +12,7 @@ const Main = () => {
         <Link to='/home'>Дом</Link>
       </button>
       <button>
-        <Link to='/raid'>Рейд</Link>
+        <Link to='/fight'>Драка</Link>
       </button>
       <button>
         <Link to='/' >Арена</Link>
