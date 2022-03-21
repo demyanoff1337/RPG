@@ -1,16 +1,19 @@
 import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Fight = () => {
+
+  const navigate = useNavigate();
 
   const me = {
     nickname: 'EZHII!',
     level: 13,
     exp: 1337,
     HP: 777,
-    damage: 137,
+    damage: 337,
     armor: 15,
-    critical: 10,
+    critical: 15,
     money: 2345,
   }
 
@@ -22,6 +25,8 @@ const Fight = () => {
       damage: me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
       armor: me.armor + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
       critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.1) * 2) - Math.floor(me.critical * 0.1)),
+      money: Math.floor(Math.random() * 26 + 25),
+      exp: Math.floor(Math.random() * 51 + 50),
     }
   }
 
@@ -248,7 +253,23 @@ const Fight = () => {
 
     const myHitted = document.querySelector('.my-hitted');
     const enemyHitted = document.querySelector('.enemy-hitted');
-  
+
+    const myDodged = document.querySelector('.my-dodged');
+    const enemyDodged = document.querySelector('.enemy-dodged');
+
+    const myCritted = document.querySelector('.my-critted');
+    const enemyCritted = document.querySelector('.enemy-critted');
+
+    const endFight = document.querySelector('.fight-end');
+    const endOpac = document.querySelector('.opacity');
+    const endResult = document.querySelector('.fight-end');
+
+    endFight.addEventListener('click', (e) => {
+      if (e.target.id === 'btnchick') {
+        navigate('/square');
+      }
+    });
+
     function switchPers1() {
       switch (pers1i) {
         case 0:
@@ -681,17 +702,45 @@ const Fight = () => {
     }
   
     function pers1Hitted(bang) {
-      const damage = enemy.damage + Math.floor(Math.random() * (Math.floor(enemy.damage * 0.05) * 2) - Math.floor(enemy.damage * 0.05));
-      myHitted.innerText = `-${damage}`;
-      myHitted.classList.remove('my-hitted-start');
-      myHitted.classList.add('my-hitted-charge');
-      setTimeout(() => {
-        myHitted.classList.remove('my-hitted-charge');
-        myHitted.classList.add('my-hitted-start');
-      }, 600);
+      let damage = enemy.damage + Math.floor(Math.random() * (Math.floor(enemy.damage * 0.05) * 2) - Math.floor(enemy.damage * 0.05));
+      damage = Math.floor(damage * ((100 - enemy.armor) / 100));
+      const crit = Math.floor(Math.random() * 100) < enemy.critical;
+
+      if (!crit) {
+        myHitted.innerText = `-${damage}`;
+        myHitted.classList.remove('my-hitted-start');
+        myHitted.classList.add('my-hitted-charge');
+        setTimeout(() => {
+          myHitted.classList.remove('my-hitted-charge');
+          myHitted.classList.add('my-hitted-start');
+        }, 600);
+      } else {
+        damage = Math.floor(damage * 2.5);
+        myCritted.innerText = `-${damage}`;
+        myCritted.classList.remove('my-critted-start');
+        myCritted.classList.add('my-critted-charge');
+        setTimeout(() => {
+          myCritted.classList.remove('my-critted-charge');
+          myCritted.classList.add('my-critted-start');
+        }, 600);
+      }
 
       if (damage > myHealth) {
         myHealth = 0;
+        gameIsOn = false;
+        setTimeout(() => {
+          endResult.classList.add('fight-end-lose');
+        endResult.innerHTML = `ПОРАЖЕНИЕ<div class="fight-money fight-end-lose">+0<span class="fm"><img src="coin.png"/></span></div>
+        <div class="fight-exp">&nbsp;+0<span class="fe"><img src="exp.png"/></span></div>
+        <div id="btnchick" class="fight-end-btn">ВЫЙТИ ИЗ БОЯ</div>
+        </div>`;
+        console.log(endResult);
+        endFight.classList.remove('end-none');
+        endFight.classList.add('end-end');
+        endOpac.classList.remove('end-none');
+        endOpac.classList.add('end-end2');
+        }, 600);
+        
       } else {
         myHealth -= damage;
       }
@@ -707,29 +756,64 @@ const Fight = () => {
       bangMe.classList.add(bang);
   
       setTimeout(() => {
-        idle[0] = true;
-        pers1i = 0;
-        pers1.classList.remove('p1-hitted');
-        pers1.classList.add('p1-1');
+          if (gameIsOn) {
+          idle[0] = true;
+          pers1i = 0;
+          pers1.classList.remove('p1-hitted');
+          pers1.classList.add('p1-1');
   
-        bangMe.classList.remove(bang);
-        bangMe.classList.add('bang-me');
-        showButtons1();
+          bangMe.classList.remove(bang);
+          bangMe.classList.add('bang-me');
+          showButtons1();
+        } else {
+          bangMe.classList.remove(bang);
+          bangMe.classList.add('bang-me');
+          
+          pers1.classList.remove(pers1.classList[2]);
+          pers1.classList.add('p1-lost');
+        }
       }, 270);
     }
   
     function pers2Hitted(bang) {
-      const damage = me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.05) * 2) - Math.floor(me.damage * 0.05));
-      enemyHitted.innerText = `-${damage}`;
-      enemyHitted.classList.remove('enemy-hitted-start');
-      enemyHitted.classList.add('enemy-hitted-charge');
-      setTimeout(() => {
-        enemyHitted.classList.remove('enemy-hitted-charge');
-        enemyHitted.classList.add('enemy-hitted-start');
-      }, 600);
+      let damage = me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.05) * 2) - Math.floor(me.damage * 0.05));
+      damage = Math.floor(damage * ((100 - me.armor) / 100));
+      const crit = Math.floor(Math.random() * 100) < me.critical;
+
+      if (!crit) {
+        enemyHitted.innerText = `-${damage}`;
+        enemyHitted.classList.remove('enemy-hitted-start');
+        enemyHitted.classList.add('enemy-hitted-charge');
+        setTimeout(() => {
+          enemyHitted.classList.remove('enemy-hitted-charge');
+          enemyHitted.classList.add('enemy-hitted-start');
+        }, 600);
+      } else {
+        damage = Math.floor(damage * 2.5);
+        enemyCritted.innerText = `-${damage}`;
+        enemyCritted.classList.remove('enemy-critted-start');
+        enemyCritted.classList.add('enemy-critted-charge');
+        setTimeout(() => {
+          enemyCritted.classList.remove('enemy-critted-charge');
+          enemyCritted.classList.add('enemy-critted-start');
+        }, 600);
+      }
 
       if (damage > enemyHealth) {
+        gameIsOn = false;
         enemyHealth = 0;
+        setTimeout(() => {
+          endResult.classList.add('fight-end-win');
+        endResult.innerHTML = `ПОБЕДА<div class="fight-money fight-end-lose">+${enemy.money}<span class="fm"><img src="coin.png"/></span></div>
+        <div class="fight-exp">+${enemy.exp}<span class="fe"><img src="exp.png"/></span></div>
+        <div id="btnchick" class="fight-end-btn">ВЫЙТИ ИЗ БОЯ</div>
+        </div>`;
+        endFight.classList.remove('end-none');
+        endFight.classList.add('end-end');
+        endOpac.classList.remove('end-none');
+        endOpac.classList.add('end-end2');
+        }, 600)
+        
       } else {
         enemyHealth -= damage;
       }
@@ -746,18 +830,33 @@ const Fight = () => {
       bangEnemy.classList.add(bang);
   
       setTimeout(() => {
-        idle[1] = true;
-        pers2i = 0;
-        pers2.classList.remove('p2-hitted');
-        pers2.classList.add('p2-1');
+          if (gameIsOn) {
+          idle[1] = true;
+          pers2i = 0;
+          pers2.classList.remove('p2-hitted');
+          pers2.classList.add('p2-1');
   
-        bangEnemy.classList.remove(bang);
-        bangEnemy.classList.add('bang-enemy');
-        showButtons2();
+          bangEnemy.classList.remove(bang);
+          bangEnemy.classList.add('bang-enemy');
+          showButtons2();
+        } else {
+          bangEnemy.classList.remove(bang);
+          bangEnemy.classList.add('bang-enemy');
+
+          pers2.classList.remove(pers2.classList[2]);
+          pers2.classList.add('p2-lost');
+        }
       }, 270);
     }
   
     function pers1Dodged() {
+      myDodged.classList.remove('my-dodged-start');
+      myDodged.classList.add('my-dodged-charge');
+      setTimeout(() => {
+        myDodged.classList.remove('my-dodged-charge');
+        myDodged.classList.add('my-dodged-start');
+      }, 600);
+
       pers1.classList.add('pers1-dodged');
       pers1.classList.add('index-up');
       dodge1.classList.remove('on-start-dodge');
@@ -777,6 +876,13 @@ const Fight = () => {
     }
   
     function pers2Dodged() {
+      enemyDodged.classList.remove('enemy-dodged-start');
+      enemyDodged.classList.add('enemy-dodged-charge');
+      setTimeout(() => {
+        enemyDodged.classList.remove('enemy-dodged-charge');
+        enemyDodged.classList.add('enemy-dodged-start');
+      }, 600);
+
       pers2.classList.add('pers1-dodged');
       pers2.classList.add('index-up');
       dodgeE1.classList.remove('on-start-dodge-1');
@@ -845,6 +951,13 @@ const Fight = () => {
   }, []);
 
   const gameOnComponent = (<>
+    <div class="fight-end end-none">
+    {/* <div class="fight-money"><span class="fm"><img src="coin.png"/></span></div>
+    <div class="fight-exp"><span class="fe"><img src="exp.png"/></span></div>
+    <div class="fight-end-btn">ВЫЙТИ ИЗ БОЯ</div> */}
+    </div>
+    <div class="opacity end-none"></div>
+
     <div id="fight"></div>
 
       <div class="my-health-bar"></div>
@@ -854,7 +967,12 @@ const Fight = () => {
       <div class="enemy-nickname">{enemy.nickname}</div>
 
       <div class="my-hitted my-hitted-start"></div>
-      <div class="enemy-hitted enemy-hitted-start">-150</div>
+      <div class="my-critted my-critted-start"></div>
+      <div class="my-dodged my-dodged-start">УВЕРНУЛСЯ!</div>
+
+      <div class="enemy-hitted enemy-hitted-start"></div>
+      <div class="enemy-critted enemy-critted-start"></div>
+      <div class="enemy-dodged enemy-dodged-start">УВЕРНУЛСЯ!</div>
 
       <div class="attacks show-btns">
   

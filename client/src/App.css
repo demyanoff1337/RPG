@@ -964,6 +964,10 @@ body {
   background-image: url(../public/hedgehog-hitted.svg);
 }
 
+.p1-lost {
+  background-image: url(../public/hedgehog-lost.svg);
+}
+
 
 /* --------------------------------- */
 
@@ -1259,6 +1263,10 @@ body {
   background-image: url(../public/beaver-hitted.svg);
 }
 
+.p2-lost {
+  background-image: url(../public/beaver-lost.svg);
+}
+
 
 /* ------------------------  */
 
@@ -1334,6 +1342,74 @@ body {
   }
 }
 
+.my-critted {
+  position: absolute;
+  color: #e91d1d;
+  font-size: 6vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 22vw;
+  left: 6vw;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.my-critted-start {
+  display: none;
+}
+
+.my-critted-charge {
+  display: block;
+  animation: my-critted 0.6s linear;
+}
+
+@keyframes my-critted {
+  from {
+    top: 22vw;
+    left: 6vw;
+  }
+
+  to {
+    top: 15vw;
+    left: 5vw;
+    opacity: 0.5;
+  }
+}
+
+.my-dodged {
+  position: absolute;
+  color: #37b9ec;
+  font-size: 3.5vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 24vw;
+  left: 3vw;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.my-dodged-start {
+  display: none;
+}
+
+.my-dodged-charge {
+  display: block;
+  animation: my-dodged 0.6s linear;
+}
+
+@keyframes my-dodged {
+  from {
+    top: 24vw;
+    left: 3vw;
+  }
+
+  to {
+    top: 17vw;
+    left: 2vw;
+    opacity: 0.5;
+  }
+}
+
 .enemy-hitted {
   position: absolute;
   color: #ec6137;
@@ -1367,3 +1443,194 @@ body {
     opacity: 0.5;
   }
 }
+
+.enemy-critted {
+  position: absolute;
+  color: #e91d1d;
+  font-size: 6vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 22vw;
+  right: 6vw;
+  z-index: 1;
+  transform: rotate(4deg);
+}
+
+.enemy-critted-start {
+  display: none;
+}
+
+.enemy-critted-charge {
+  display: block;
+  animation: enemy-critted 0.6s linear;
+}
+
+@keyframes enemy-critted {
+  from {
+    top: 22vw;
+    right: 6vw;
+  }
+
+  to {
+    top: 15vw;
+    right: 5vw;
+    opacity: 0.5;
+  }
+}
+
+.enemy-dodged {
+  position: absolute;
+  color: #37b9ec;
+  font-size: 3.5vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  font-size: 4vw;
+  font-weight: bold;
+  text-shadow: 0.1vw 0.1vw 0.4vw black;
+  top: 24vw;
+  right: 3vw;
+  z-index: 1;
+  transform: rotate(4deg);
+}
+
+.enemy-dodged-start {
+  display: none;
+}
+
+.enemy-dodged-charge {
+  display: block;
+  animation: enemy-dodged 0.6s linear;
+}
+
+@keyframes enemy-dodged {
+  from {
+    top: 24vw;
+    right: 3vw;
+  }
+
+  to {
+    top: 17vw;
+    right: 2vw;
+    opacity: 0.5;
+  }
+}
+
+.fight-end {
+  position: absolute;
+  font-size: 7vw;
+  font-weight: bold;
+  z-index: 5;
+  background-color: #3a3730; 
+  width: 60vw;
+  height: 25vw;
+  top: 12vw;
+  line-height: 13vw;
+  text-align: center;
+  border-radius: 3vw;
+  border: 0.5vw solid rgb(105, 99, 99);
+}
+
+.fight-end-win {
+  color: #55a34a;
+}
+
+.fight-end-lose {
+  color: #c03b3b;
+} 
+
+.fight-money {
+  position: absolute;
+  top: 7vw;
+  left: 19vw;
+  font-size: 3vw;
+  color: yellow;
+}
+
+.fight-money img {
+  margin-left: 0.9vw;
+  margin-bottom: -0.4vw;
+  height: 3vw;
+  width: 3vw;
+}
+
+.fight-exp {
+  position: absolute;
+  top: 7vw;
+  left: 32vw;
+  font-size: 3vw;
+  color: rgb(201, 191, 54);
+}
+
+.fight-exp img {
+  margin-left: 0.9vw;
+  margin-bottom: -0.5vw;
+  height: 3.1vw;
+  width: 3.1vw;
+}
+
+.fight-end-btn {
+  position: absolute;
+  text-decoration: none;
+  font-size: 2vw;
+  width: 24vw;
+  height: 4vw;
+  background-color: #deb136;
+  border-radius: 2vw;
+  outline: solid 0.4vw rgb(175, 144, 76);
+  line-height: 4vw;
+  color: #2d2e2e;
+  top: 17.8vw;
+  left: 18vw;
+  transition: font-size 0.3s, background-color 0.3s;
+}
+
+.fight-end-btn:hover {
+  font-size: 2.2vw;
+  background-color: #eecc6e;
+  cursor: pointer;
+}
+
+.opacity {
+  position: absolute;
+  opacity: 0.8;
+  z-index: 4;
+  width: 100vw;
+  height: 50vw;
+  background-color: #0d0e0e;
+}
+
+.end-none {
+  display: none;
+}
+
+.end-end {
+  display: block;
+  animation: go-end 0.7s linear;
+}
+
+.end-end2 {
+  display: block;
+  animation: go-end2 0.7s linear;
+}
+
+@keyframes go-end {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes go-end {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+/* background-color: #deb136;
+  border-radius: 2vw;
+  outline: solid 0.6vw rgb(175, 144, 76); */
