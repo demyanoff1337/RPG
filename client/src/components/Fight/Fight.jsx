@@ -12,7 +12,7 @@ const Fight = () => {
     HP: 777,
     damage: 137,
     armor: 15,
-    critical: 25,
+    critical: 15,
     money: 2345,
   }
 
@@ -72,7 +72,7 @@ const Fight = () => {
       }
     }, 100)
 
-    let botMove = Math.floor(Math.random() * 3);
+    let botMove;
     let whoStart;
     let pillClicked = false;
 
@@ -293,7 +293,7 @@ const Fight = () => {
       [200, 196],
       [200, 198],
 
-      [100, 200],
+      [200, 200],
       [198, 200],
       [196, 200],
       [194, 200],
@@ -785,6 +785,7 @@ const Fight = () => {
     }
   
     function showButtons1() {
+      botMove = Math.floor(Math.random() * 3);
       buttons1.classList.remove('hide-btns');
       buttons1.classList.add('show-btns');
       topAttack.classList.add('top-1');

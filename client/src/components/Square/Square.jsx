@@ -20,6 +20,39 @@ const Main = () => {
     }, 700);
   }
 
+  function script() {
+    const home = document.querySelector('.home-img');
+    const homeBox = document.querySelector('.home-box');
+    homeBox.addEventListener('mouseover', (e) => {
+      home.classList.add('go-bright');
+    });
+    homeBox.addEventListener('mouseleave', (e) => {
+      home.classList.remove('go-bright');
+    });
+
+    const market = document.querySelector('.market-img');
+    const marketBox = document.querySelector('.market-box');
+    marketBox.addEventListener('mouseover', (e) => {
+      market.classList.add('go-bright');
+    });
+    marketBox.addEventListener('mouseleave', (e) => {
+      market.classList.remove('go-bright');
+    });
+
+    const enemy = document.querySelector('.enemy-img');
+    const enemyBox = document.querySelector('.enemy-box');
+    enemyBox.addEventListener('mouseover', (e) => {
+      enemy.classList.add('go-bright-2');
+    });
+    enemyBox.addEventListener('mouseleave', (e) => {
+      enemy.classList.remove('go-bright-2');
+    });
+  }
+
+  useEffect(() => {
+    script();
+  }, []);
+
   return (
     <>
     <div class="on-load hide-animations-in">
@@ -28,10 +61,24 @@ const Main = () => {
     <div class="go-go-go"></div>
     <div class="go-go-go"></div>
     </div>
-    <div className={styles}>
-      <div>nickname: {user.nickname}, name: {user.name}</div>
-      <button>
-        <Link to='/home'>Дом</Link>
+    
+    <div class="home-box"></div>
+    <img class="market-img" src="market.png"/>
+    
+    <div class="market-box"></div>
+    <img class="home-img" src="home.png"/>
+
+    <img class="enemy-back-asset" src="back-for-enemy.png"/>
+    <img class="square-back" src="square.png"/>
+
+    <div class="enemy-box"></div>
+    <img class="enemy-img" src="beaver1.svg"/>
+
+    <div class="go-front">
+      {/* <div>nickname: {user.nickname}, name: {user.name}</div> */}
+      <button class="go-home-btn">
+        Home
+        {/* <Link to='/home'>Дом</Link> */}
       </button>
       <button>
         <div onClick={goFight}>Драка</div>
@@ -43,6 +90,7 @@ const Main = () => {
         <Link to='/'>Торговцы</Link>
       </button>
     </div>
+    {/* <img class="" */}
     </>
   );
 }
