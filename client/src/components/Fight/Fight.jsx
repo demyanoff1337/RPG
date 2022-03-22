@@ -1,4 +1,3 @@
-import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,9 +10,9 @@ const Fight = () => {
     level: 13,
     exp: 1337,
     HP: 777,
-    damage: 337,
+    damage: 137,
     armor: 15,
-    critical: 15,
+    critical: 25,
     money: 2345,
   }
 
@@ -38,10 +37,124 @@ const Fight = () => {
   let enemyHealth = enemy.HP;
 
   function script() {
+
+    const onLoad = document.querySelector('.on-load');
+    const owl = document.querySelector('.owl-fight');
+    const welcomeOwl = document.querySelector('.welcome-owl');
+    setTimeout(() => {
+      owl.classList.add('owl-fight-in');
+      owl.classList.add('display-it');
+      owl.classList.remove('hide-it');
+      welcomeOwl.classList.add('owl-fight-in');
+      welcomeOwl.classList.add('display-it');
+      welcomeOwl.classList.remove('hide-it');
+      onLoad.classList.add('hide-animations-in');
+    }, 1650);
+
+    const loadingPers1 = document.querySelector('.load-persons-1');
+    const loadingPers2 = document.querySelector('.load-persons-2');
+
+    const person1Frames = ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'];
+    const person2Frames = ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'];
+
+    let antiShimeringIndex = 0;
+    const antiShimering = setInterval(() => {
+      loadingPers1.classList.remove(loadingPers1.classList[0]);
+      loadingPers1.classList.add(person1Frames[antiShimeringIndex]);
+      loadingPers2.classList.remove(loadingPers2.classList[0]);
+      loadingPers2.classList.add(person2Frames[antiShimeringIndex]);
+
+      antiShimeringIndex++;
+      if (antiShimeringIndex === person1Frames.length) {
+        loadingPers1.remove();
+        loadingPers2.remove();
+        clearInterval(antiShimering);
+      }
+    }, 100)
+
     let botMove = Math.floor(Math.random() * 3);
+    let whoStart;
+    let pillClicked = false;
+
+    setTimeout(() => {
+      const firstMove = [true, false][Math.floor(Math.random() * 2)];
+    const pill1txt = document.querySelector('.pill-blue-text');
+    const pill2txt = document.querySelector('.pill-red-text');
+    pill1txt.innerText = firstMove ? 'ЕЖЖ' : 'БОБР';
+    pill2txt.innerText = !firstMove ? 'ЕЖЖ' : 'БОБР';
+    const pill1 = document.querySelector('.pill-blue');
+    const pill2 = document.querySelector('.pill-red');
+    
+    pill1.classList.add('display-it');
+    pill2.classList.add('display-it');
+
+    pill1.classList.remove('hide-it');
+    pill2.classList.remove('hide-it');
+
+    pill1txt.classList.add('display-it');
+    pill2txt.classList.add('display-it');
+
+    pill1txt.classList.remove('hide-it');
+    pill2txt.classList.remove('hide-it');
+
+    pill1.addEventListener('click', (e) => {
+      if (!pillClicked) {
+        pillClicked = true;
+        if (firstMove) {
+          whoStart = true;
+        } else {
+          whoStart = false;
+        }
+        pill1.classList.add('pill-out');
+        pill1txt.classList.remove('pill-blue-a');
+        pill2txt.classList.add('pill-hide');
+        setTimeout(() => {
+          pill1.classList.remove('display-it');
+          pill1.classList.add('pill-hide');
+          welcomeOwl.innerText = `НАЧИНАЕТ ${whoStart ? 'ЕЖ' : 'БОБР'}`
+          const owlHide = document.querySelector('.owl-things');
+          setTimeout(() => {
+            owlHide.classList.add('owl-fight-out');
+          }, 1000);     
+          setTimeout(() => {
+            owlHide.classList.add('hide-it');
+            whoStart ? showButtons1() : showButtons2();
+          }, 1980);
+        }, 980);
+      }
+    });
+
+    pill2.addEventListener('click', (e) => {
+      if (!pillClicked) {
+        pillClicked = true;
+        if (!firstMove) {
+          whoStart = true;
+        } else {
+          whoStart = false;
+        }
+        pill2.classList.add('pill-out');
+        pill2txt.classList.remove('pill-red-a');
+        pill1txt.classList.add('pill-hide');
+        setTimeout(() => {
+          pill2.classList.remove('display-it');
+          pill2.classList.add('pill-hide');
+          welcomeOwl.innerText = `НАЧИНАЕТ ${whoStart ? 'ЕЖ' : 'БОБР'}`;
+          const owlHide = document.querySelector('.owl-things');
+          setTimeout(() => {
+            owlHide.classList.add('owl-fight-out');
+          }, 1000);     
+          setTimeout(() => {
+            owlHide.classList.add('hide-it');
+            whoStart ? showButtons1() : showButtons2();
+          }, 1980);
+        }, 980);
+      }
+    });
+    }, 2650);
+
     let myMove;
     let gameIsOn = true;
-  
+
     const buttons1 = document.querySelector('.attacks');
     const buttons2 = document.querySelector('.defend');
   
@@ -231,7 +344,7 @@ const Fight = () => {
       [104, 200],
       [102, 200],
       [100, 200],
-      
+
     ]
     
     let pers1i = 0;
@@ -689,8 +802,6 @@ const Fight = () => {
       offQuestionMark2();
     }
   
-    hideButtons2();
-  
     function showButtons2() {
       botMove = Math.floor(Math.random() * 3);
       buttons2.classList.remove('hide-btns');
@@ -716,7 +827,7 @@ const Fight = () => {
         }, 600);
       } else {
         damage = Math.floor(damage * 2.5);
-        myCritted.innerText = `-${damage}`;
+        myCritted.innerText = `-${damage} ϟ`;
         myCritted.classList.remove('my-critted-start');
         myCritted.classList.add('my-critted-charge');
         setTimeout(() => {
@@ -734,7 +845,6 @@ const Fight = () => {
         <div class="fight-exp">&nbsp;+0<span class="fe"><img src="exp.png"/></span></div>
         <div id="btnchick" class="fight-end-btn">ВЫЙТИ ИЗ БОЯ</div>
         </div>`;
-        console.log(endResult);
         endFight.classList.remove('end-none');
         endFight.classList.add('end-end');
         endOpac.classList.remove('end-none');
@@ -790,7 +900,7 @@ const Fight = () => {
         }, 600);
       } else {
         damage = Math.floor(damage * 2.5);
-        enemyCritted.innerText = `-${damage}`;
+        enemyCritted.innerText = `-${damage} ϟ`;
         enemyCritted.classList.remove('enemy-critted-start');
         enemyCritted.classList.add('enemy-critted-charge');
         setTimeout(() => {
@@ -951,6 +1061,25 @@ const Fight = () => {
   }, []);
 
   const gameOnComponent = (<>
+  <div class="owl-things">
+  <img class="owl-fight hide-it" src="owl.png"/>
+
+  <div class="pill-text pill-blue-text pill-blue-a hide-it"></div>
+  <div class="pill-text pill-red-text pill-red-a hide-it"></div>
+  <img class="pill pill-blue hide-it" src="pill-blue.png"/>
+  <img class="pill pill-red hide-it" src="pill-red.png"/>
+  <div class="welcome-owl hide-it">КАКУЮ ТАБЛЕТКУ ВЫБЕРЕШЬ?</div>
+  </div>
+
+  <div class="on-load">
+    <img class="logo-left-f" src="1.png"/>
+    <img class="logo-right-f" src="2.png"/>
+    <div class="loading-left"></div>
+    <div class="loading-right"></div>
+    <div class="load-persons-1"></div>
+    <div class="load-persons-2"></div>
+    </div>
+    
     <div class="fight-end end-none">
     {/* <div class="fight-money"><span class="fm"><img src="coin.png"/></span></div>
     <div class="fight-exp"><span class="fe"><img src="exp.png"/></span></div>
@@ -974,7 +1103,7 @@ const Fight = () => {
       <div class="enemy-critted enemy-critted-start"></div>
       <div class="enemy-dodged enemy-dodged-start">УВЕРНУЛСЯ!</div>
 
-      <div class="attacks show-btns">
+      <div class="attacks hide-btns">
   
   <button type="button" id="top" class="btns"></button>
   <button type="button" id="mid" class="btns"></button>
@@ -982,7 +1111,7 @@ const Fight = () => {
   
   </div>
   
-  <div class="defend show-btns">
+  <div class="defend hide-btns">
   
   <button type="button" id="top-def" class="btns-def"></button>
   <button type="button" id="mid-def" class="btns-def"></button>
@@ -994,7 +1123,7 @@ const Fight = () => {
   
   <img id="bang-enemy" class="bang-enemy" src="bang.png"/>
   
-  <div class="question-mark-1 q-show">?</div>
+  <div class="question-mark-1 q-hide">?</div>
   
   <div class="pers1-dodged-1 on-start-dodge">
   <img src="hedgehog1.svg"/>
