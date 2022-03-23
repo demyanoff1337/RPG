@@ -21,16 +21,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Inventory.init({
-    weapon1_id: DataTypes.INTEGER,
-    weapon2_id: DataTypes.INTEGER,
-    weapon3_id: DataTypes.INTEGER,
-    armor1_id: DataTypes.INTEGER,
-    armor2_id: DataTypes.INTEGER,
-    armor3_id: DataTypes.INTEGER,
+    weapon_id: DataTypes.INTEGER,
+    armor_id: DataTypes.INTEGER,
     flask1_id: DataTypes.INTEGER,
     flask2_id: DataTypes.INTEGER,
-    skill1_id: DataTypes.INTEGER,
-    skill2_id: DataTypes.INTEGER
+    flask3_id: DataTypes.INTEGER,
+    flask4_id: DataTypes.INTEGER,
+    skill_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Inventory',

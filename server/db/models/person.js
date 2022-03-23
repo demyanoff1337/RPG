@@ -35,7 +35,10 @@ module.exports = (sequelize, DataTypes) => {
     money: DataTypes.INTEGER,
     weapon_id: DataTypes.INTEGER,
     armor_id: DataTypes.INTEGER,
-    flask_id: DataTypes.INTEGER,
+    flask1_id: DataTypes.INTEGER,
+    flask2_id: DataTypes.INTEGER,
+    flask3_id: DataTypes.INTEGER,
+    flask4_id: DataTypes.INTEGER,
     skill_id: DataTypes.INTEGER,
     inventory_id: DataTypes.INTEGER,
   }, {
