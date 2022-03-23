@@ -10,6 +10,9 @@ import { useEffect } from 'react';
 import { firstConnection } from './redux/thunk/authorizationThunk';
 import { useDispatch, useSelector } from 'react-redux';
 import Chat from './components/WebSocket/Chat';
+import Login from './components/LogIn/LogIn';
+import SignUp from './components/SignUp/SignUp';
+import Profile from './components/Profile/Profile'
 
 function App() {
 
@@ -32,6 +35,9 @@ function App() {
         <Route path='/market' element={<Market/>}/>
         <Route path='/rade' element={<Rade/>}/>
         <Route path='/chat' element={<Chat/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
     </div>
     </div>

@@ -10,16 +10,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.SkillEffect, { foreignKey: 'skill_effect_id' });
       this.hasMany(models.Person, { foreignKey: 'skill_id' });
-      this.hasMany(models.Inventory, { foreignKey: 'skill1_id' });
-      this.hasMany(models.Inventory, { foreignKey: 'skill2_id' });
     }
   }
   Skill.init({
-    skill_effect_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    image: DataTypes.TEXT
+    image: DataTypes.TEXT,
+    price: DataTypes.INTEGER,
+    HP: DataTypes.INTEGER,
+    damage: DataTypes.INTEGER,
+    armor: DataTypes.INTEGER,
+    critical: DataTypes.INTEGER,
+
   }, {
     sequelize,
     modelName: 'Skill',
