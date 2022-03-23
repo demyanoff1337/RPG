@@ -10,16 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Effect, { foreignKey: 'effect_id' });
-      this.hasMany(models.Person, { foreignKey: 'flask_id' });
+      this.hasMany(models.Person, { foreignKey: 'flask1_id' });
+      this.hasMany(models.Person, { foreignKey: 'flask2_id' });
+      this.hasMany(models.Person, { foreignKey: 'flask3_id' });
+      this.hasMany(models.Person, { foreignKey: 'flask4_id' });
       this.hasMany(models.Inventory, { foreignKey: 'flask1_id' });
       this.hasMany(models.Inventory, { foreignKey: 'flask2_id' });
+      this.hasMany(models.Inventory, { foreignKey: 'flask3_id' });
+      this.hasMany(models.Inventory, { foreignKey: 'flask4_id' });
     }
   }
   Flask.init({
-    effect_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    image: DataTypes.TEXT
+    image: DataTypes.TEXT,
+    price: DataTypes.INTEGER,
+    HP: DataTypes.INTEGER,
+    damage: DataTypes.INTEGER,
+    armor: DataTypes.INTEGER,
+    critical: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Flask',

@@ -63,7 +63,31 @@ module.exports = {
         },
         onDelete: 'cascade',
       },
-      flask_id: {
+      flask1_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Flasks',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+      },
+      flask2_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Flasks',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+      },
+      flask3_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Flasks',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+      },
+      flask4_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Flasks',

@@ -11,9 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Person, { foreignKey: 'armor_id' });
-      this.hasMany(models.Inventory, { foreignKey: 'armor1_id' });
-      this.hasMany(models.Inventory, { foreignKey: 'armor2_id' });
-      this.hasMany(models.Inventory, { foreignKey: 'armor3_id' });
+      this.hasMany(models.Inventory, { foreignKey: 'armor_id' });
     }
   }
   Armor.init({

@@ -10,16 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Weapon, { foreignKey: 'weapon1_id' });
-      this.belongsTo(models.Weapon, { foreignKey: 'weapon2_id' });
-      this.belongsTo(models.Weapon, { foreignKey: 'weapon3_id' });
-      this.belongsTo(models.Armor, { foreignKey: 'armor1_id' });
-      this.belongsTo(models.Armor, { foreignKey: 'armor2_id' });
-      this.belongsTo(models.Armor, { foreignKey: 'armor3_id' });
+      this.belongsTo(models.Weapon, { foreignKey: 'weapon_id' });
+      this.belongsTo(models.Armor, { foreignKey: 'armor_id' });
       this.belongsTo(models.Flask, { foreignKey: 'flask1_id' });
       this.belongsTo(models.Flask, { foreignKey: 'flask2_id' });
-      this.belongsTo(models.Skill, { foreignKey: 'skill1_id' });
-      this.belongsTo(models.Skill, { foreignKey: 'skill2_id' });
+      this.belongsTo(models.Flask, { foreignKey: 'flask3_id' });
+      this.belongsTo(models.Flask, { foreignKey: 'flask4_id' });
+      this.belongsTo(models.Skill, { foreignKey: 'skill_id' });
       this.hasOne(models.Person, { foreignKey: 'inventory_id' })
     }
   }

@@ -24,64 +24,47 @@ const Home = () => {
   //   getPerson();
   // }, []);
 
-  // const [cardList, setCardList] = useState([
-  //   { id: 1, order: 3, type: 'inventory', text: 'Меч', img: 'https://yandex-images.clstorage.net/n4Qxb9201/2b9cc3Dut/lOGFAZCO6WXfgSR5rgRunmZCXJTKbRcrM5WM-EjXnFZSapRzkahbobc6CDLsUeB2bwsdXq6EsiF4WJcMP_xL1N3g5DCg4pBZ94UkdZogArp6bnyo6n1HNzr00JRFo9h6V1bcSswUrzBW07CHRZAZj5dnDDa2gN58cAhusAqhwqnw8RXV9CZgjQuFwVWaYJoCxvssoEpkP1brGaFIof8BjgPmXVdI-AuYWr_cCz3sXWd_LyBumoCLwGy0ttU6NZIBlPG5nVRmsFmjUckpVpRO3irj7LTWqBvaB2WpOP0_OUYnrkmzoPDnKBrn1N8Z8FmzE1dM2hIs2_wcSK4VJhGmAUAFGfUc_ozZU9EJqV7Qzt6mQ3BoVmSLbu_llSCJWwWuY_atq0DU84DiP-D3WVxBh3MzYFri_C905DQe2SYFgt1YdbXZ9A6YFctZeSmeGG42mhfQoBYg6yLv5cWACVMBViPyeRu05FsAArPYh0Uo2T_zv7gyhsgPXCRM2tWy9ZIV0JUx7ZD28Jm3zW1lngiOgk5LfCAS5E9qd3F1NFkfQXZv_snnjOTXmOafgFsFFFWn99fMqhY4_2RYOCKRarlOIQgB3c0o5nAV25VJ8SrI_j6uq7CQdgRrAvcttcAlt1GGWwL9F6Twk_CyV4SjLWhRT5O7rOqSWNfwENTage5NTqnAjUFxwFLkNXOhPcn-LPoaFn9YbIKEtwrjfRmAVTv9rkemFQMQwH8cGoNEY824RTdzpxSmCnTz_Gg0ykVe4ZJxlCWZNfzuRDXPuU3p6ggGtlIfoKSG_LvWS339UJHDebpTirEzYKCHgI6zKIs1PEkDF7uoXvK836RsUNLlbmnCuYDRVREk4qCNPx3d4R6owpJC8wDsjmybkos1CaTRs12q94KFN9i4S-yyC8i_FYQ172MjOOq2uHcAqFCu7VJNgsVMgVGdSIbk-T-drUlGNAay0nNEGGJYr1qXBTGY6Yuo' },
-  //   { id: 2, order: 1, type: 'inventory', text: 'Топор', img: 'https://avatars.mds.yandex.net/i?id=60920bc4f274a070410795ea47b007cb-4888294-images-thumbs&n=13&exp=1' },
-  //   { id: 3, order: 2, type: 'inventory', text: 'Палка', img: 'https://avatars.mds.yandex.net/i?id=630069b2d56d449fdaa93ae85d41c728-5656335-images-thumbs&n=13&exp=1' },
-  //   { id: 4, order: 4, type: 'inventory', text: 'Копье', img: 'https://yandex-images.clstorage.net/n4Qxb9201/2b9cc3Dut/lOGFAZCO6WXfgSR5rgRunmZCXJTKbRcrM5WM-EjXnFZSapRzkahbobc6CDLsUeB2bwsdXq6EsiF4WJcMP_xL1N3g5DCg4pBZ94UkdZogArp6bnyo6n1HNzr00JRFo9h6V1bcSswUrzBW07CHRZAZj5dnDDa2gN58cAhusAqhwqnw8RXV9CZgjQuFwVWaYJoCxvssoEpkP1brGaFIof8BjgPmXVdI-AuYWr_cCz3sXWd_LyBumoCLwGy0ttU6NZIBlPG5nVRmsFmjUckpVpRO3irj7LTWqBvaB2WpOP0_OUYnrkmzoPDnKBrn1N8Z8FmzE1dM2hIs2_wcSK4VJhGmAUAFGfUc_ozZU9EJqV7Qzt6mQ3BoVmSLbu_llSCJWwWuY_atq0DU84DiP-D3WVxBh3MzYFri_C905DQe2SYFgt1YdbXZ9A6YFctZeSmeGG42mhfQoBYg6yLv5cWACVMBViPyeRu05FsAArPYh0Uo2T_zv7gyhsgPXCRM2tWy9ZIV0JUx7ZD28Jm3zW1lngiOgk5LfCAS5E9qd3F1NFkfQXZv_snnjOTXmOafgFsFFFWn99fMqhY4_2RYOCKRarlOIQgB3c0o5nAV25VJ8SrI_j6uq7CQdgRrAvcttcAlt1GGWwL9F6Twk_CyV4SjLWhRT5O7rOqSWNfwENTage5NTqnAjUFxwFLkNXOhPcn-LPoaFn9YbIKEtwrjfRmAVTv9rkemFQMQwH8cGoNEY824RTdzpxSmCnTz_Gg0ykVe4ZJxlCWZNfzuRDXPuU3p6ggGtlIfoKSG_LvWS339UJHDebpTirEzYKCHgI6zKIs1PEkDF7uoXvK836RsUNLlbmnCuYDRVREk4qCNPx3d4R6owpJC8wDsjmybkos1CaTRs12q94KFN9i4S-yyC8i_FYQ172MjOOq2uHcAqFCu7VJNgsVMgVGdSIbk-T-drUlGNAay0nNEGGJYr1qXBTGY6Yuo' },
-
-  // ])
+  const [cardList, setCardList] = useState([
+    { id: 1, order: 3, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  ]);
 
 
-  // const [cardFlasc, setCardFlasc] = useState([
-  //   { id: 1, order: 3, type: 'flasc', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  //   { id: 2, order: 1, type: 'flasc', img: 'https://avatars.mds.yandex.net/i?id=34dc7173d49b6ca76a0699b0bf89bf09-5716853-images-thumbs&n=13&exp=1' },
-  //   { id: 3, order: 2, type: 'flasc', img: 'https://avatars.mds.yandex.net/i?id=2693482affbc33e079a40c05ed3ee36b-5584797-images-thumbs&n=13&exp=1' },
-  //   { id: 4, order: 4, type: 'flasc', img: 'https://yandex-images.clstorage.net/n4Qxb9201/2b9cc3Dut/lOGFAZCO6WXfgSR5rgRunmZCXJTKbRcrM5WM-ETzkE8DP9By3OEK5NpWFV-JMdRqYmcEFr6R4hQsTcMIP_xn8MX00Aig4pBZ94UkdZogArp6bnyo6n1HNzr00JRFo9h6V1bcSswUrzBW07CHRZAZj5dnDDa2gN58cAhusAqhwqnw8RXV9CZgjQuFwVWaYJoCxvssoEpkP1brGaFIof8BjgPmXVdI-AuYWr_cCz3sXWd_LyBumoCLwGy0ttU6NZIBlPG5nVRmsFmjUckpVpRO3irj7LTWqBvaB2WpOP0_OUYnrkmzoPDnKBrn1N8Z8FmzE1dM2hIs2_wcSK4VJhGmAUAFGfUc_ozZU9EJqV7Qzt6mQ3BoVmSLbu_llSCJWwWuY_atq0DU84DiP-D3WVxBh3MzYFri_C905DQe2SYFgt1YdbXZ9A6YFctZeSmeGG42mhfQoBYg6yLv5cWACVMBViPyeRu05FsAArPYh0Uo2T_zv7gyhsgPXCRM2tWy9ZIV0JUx7ZD28Jm3zW1lngiOgk5LfCAS5E9qd3F1NFkfQXZv_snnjOTXmOafgFsFFFWn99fMqhY4_2RYOCKRarlOIQgB3c0o5nAV25VJ8SrI_j6uq7CQdgRrAvcttcAlt1GGWwL9F6Twk_CyV4SjLWhRT5O7rOqSWNfwENTage5NTqnAjUFxwFLkNXOhPcn-LPoaFn9YbIKEtwrjfRmAVTv9rkemFQMQwH8cGoNEY824RTdzpxSmCnTz_Gg0ykVe4ZJxlCWZNfzuRDXPuU3p6ggGtlIfoKSG_LvWS339UJHDebpTirEzYKCHgI6zKIs1PEkDF7uoXvK836RsUNLlbmnCuYDRVREk4qCNPx3d4R6owpJC8wDsjmybkos1CaTRs12q94KFN9i4S-yyC8i_FYQ172MjOOq2uHcAqFCu7VJNgsVMgVGdSIbk-T-drUlGNAay0nNEGGJYr1qXBTGY6Yuo' },
+  const [cardFlasc, setCardFlasc] = useState([
+    { id: 1, order: 3, type: 'flasc', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  ])
 
 
-  // ])
+  console.log(cardList);
+  console.log(cardFlasc);
 
 
-  // console.log(cardList);
-  // console.log(cardFlasc);
-
-
-  // const [currentCard, setCurrentCard] = useState(null) // состояние что бы запоминать новую карточку
+  const [currentCard, setCurrentCard] = useState(null) // состояние что бы запоминать новую карточку
   // const [currentFlasc, setCurrentFlasc] = useState(null)
   // const [dragOver, setDragOver] = useState(null)
 
-  // console.log('currentCard', currentCard);
+  console.log('currentCard', currentCard);
   // console.log('currentFlasc', currentFlasc);
 
-  // function dragStartHandler(e, card) {
-  //   console.log('drag', card);
-  //   setCurrentCard(card)
-  //   // setCurrentFlasc(card)
+  function dragStartHandler(e, card) {
+    console.log('drag', card);
+    setCurrentCard(card)
+    // setCurrentFlasc(card)
 
-  // }
-  // function dragEndHandler(e, card) {
-  //   e.target.style.background = 'white'
+  }
+  function dragEndHandler(e, card) {
+    e.target.style.background = 'white'
 
-  // }
-  // function dragOverHandler(e, card) {
-  //   e.preventDefault()
-  //   e.target.style.background = 'lightgray'
-  // }
-  // function dropHandler(e, card) {
-  //   e.preventDefault()
-  //   console.log('drop', card);
-  //   setCardList(cardList.map(c => {
-  //     if (c.id === card.id) {
-  //       return { ...c, order: currentCard.order }
-  //     }
-  //     if (c.id === currentCard.id) {
-  //       return { ...c, order: card.order }
-  //     }
-  //     return c
-  //   }))
-  //   e.target.style.background = 'white'
-  // }
+  }
+  function dragOverHandler(e, card) {
+    e.preventDefault()
+    e.target.style.background = 'lightgray'
+  }
+  function dropHandler(e, card) {
+    e.preventDefault()
+    console.log('drop', card);
+    setCardList([cardList[1], cardList[0]]);
+  }
   // function dropHandlerFlasc(e, card) {
 
 
@@ -159,7 +142,7 @@ const Home = () => {
   //       </div>
 
   //       {/* <div id="flask-items" className="item-card"> */}
-  //       {cardFlasc.map((card, i) => (
+  //       {cardList.map((card, i) => (
   //         <div
   //           onDragStart={(e) => dragStartHandler(e, card)} //срабатывает в тот момент когда мы взяли карточку
   //           onDragLeave={(e) => dragEndHandler(e)} // срабатывает если мы вышли за пределы другой карттчки
@@ -219,7 +202,7 @@ const Home = () => {
         </div>
 
         <div id="down-card">
-          <div id="money">1337 <span><img id="card-money-icon" src="https://pngimg.com/uploads/coin/coin_PNG36943.png" alt=""></img></span></div>
+          <div id="money">1337 <span><img id="card-money-icon" src="coin.png" alt=""></img></span></div>
           <div id="to-shop">ТОРГОВЦЫ</div>
         </div>
 
@@ -270,8 +253,15 @@ const Home = () => {
       <div id="contr">12%</div>  */}
 
       <div id="items">
-          <div id="weapon" className="item-card mr-2">
-            <img id="item-img" className="item-img-card" src="https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg" alt="ima"/>
+          <div 
+           onDragStart={(e) => dragStartHandler(e, cardList[0])} //срабатывает в тот момент когда мы взяли карточку
+                       onDragLeave={(e) => dragEndHandler(e)} // срабатывает если мы вышли за пределы другой карттчки
+                       onDragEnd={(e) => dragEndHandler(e)} // если мы отпустили перемещение
+                       onDragOver={(e) => dragOverHandler(e)} //если мы находимся над другим объектом
+                       onDrop={(e) => dropHandler(e, cardList[0])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+                       draggable={true}
+          id="weapon" className="item-card mr-2">
+            <img id="item-img" className="item-img-card" src={cardList[0].img} alt="ima"/>
           </div>
           <div id="shield"  className="item-card mr-2">
             <img id="item-img" className="item-img-card" src="https://cdn4.iconfinder.com/data/icons/ancient-melee-weapons-and-helmets/128/Shield_Crossed_Swords-512.png" alt="ima"/>
@@ -280,63 +270,65 @@ const Home = () => {
           <img id="item-img" className="item-img-card" src="https://images.vexels.com/media/users/3/146887/isolated/preview/41faeb4b7129b75f4883d75c72627835-fire-flame-clipart.png" alt="img"/>
           </div>
 
-          {/* <div id="flask-items" className="item-card"> */}
-          {new Array(4).fill().map(el => (
-            <div id="item-s" className="item-card">
+          {/* <div id="flask-items"> */}
+          {new Array(4).fill().map((el, i) => (
+            <div id={`item-s`} className="item-card">
               <img id="item-img" className="item-img-card" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Conical_flask_teal.svg/768px-Conical_flask_teal.svg.png" alt="img"/>
             </div>))}
           {/* </div> */}
       </div>
 
-      <div id="hint-1" className="hint">ОРУЖИЕ</div>      
+      <div id="hint-1" className="hint-2">ОРУЖИЕ</div>      
       <div id="ramka-1" className="ramka"></div>
 
-      <div id="hint-2" className="hint">БРОНЯ</div>      
+      <div id="hint-2" className="hint-2">БРОНЯ</div>      
       <div id="ramka-2" className="ramka"></div>
 
-      <div id="hint-3" className="hint">УМЕНИЕ</div>      
+      <div id="hint-3" className="hint-2">УМЕНИЕ</div>      
       <div id="ramka-3" className="ramka"></div>
 
-      <div id="hint-4" className="hint">ЗЕЛЬЯ</div>      
+      <div id="hint-4" className="hint-2">ЗЕЛЬЯ</div>      
       <div id="ramka-4" className="ramka-big"></div>
 
       <div id="inventory">
 
-        <div id="top-inv">
+      
+      <div
+      onDragStart={(e) => dragStartHandler(e, cardList[1])} //срабатывает в тот момент когда мы взяли карточку
+      onDragLeave={(e) => dragEndHandler(e)} // срабатывает если мы вышли за пределы другой карттчки
+      onDragEnd={(e) => dragEndHandler(e)} // если мы отпустили перемещение
+      onDragOver={(e) => dragOverHandler(e)} //если мы находимся над другим объектом
+      onDrop={(e) => dropHandler(e, cardList[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+      draggable={true} 
+      id="weapon" className="item-card mr-2">
+            <img id="item-img" className="item-img-card" src={cardList[1].img} alt="ima"/>
+          </div>
+          <div id="shield"  className="item-card mr-2">
+            <img id="item-img" className="item-img-card" src="https://www.vhv.rs/dpng/d/132-1322463_armour-suit-png-picture-medieval-leather-armor-black.png" alt="ima"/>
+          </div>
+            <div id="magic" className="item-card mr">
+          <img id="item-img" className="item-img-card" src="https://w7.pngwing.com/pngs/206/654/png-transparent-burning-fire-combustion-raging-fire-flames.png" alt="img"/>
+          </div>
 
-        <div id="weapons">
-        {new Array(2).fill().map(el => (
-        <div id="item-w" className="mr-2">
-          <image id="item-inv-image" src="https://wiki.melvoridle.com/images/3/3e/Bronze_Sword_%28item%29.svg" alt="img"/>
-        </div>))}
-        </div>
 
-        <div id="armors">
-        {new Array(2).fill().map(el => (
-        <div id="item-a">
-          <image id="item-inv-image" src="https://cdn4.iconfinder.com/data/icons/ancient-melee-weapons-and-helmets/128/Shield-512.png" alt="img"/>
-        </div>))}
-        </div>
-
-        <div id="spells">
-        {new Array(2).fill().map(el => (
-        <div id="item-s">
-          <image id="item-inv-image" src="https://toppng.com/uploads/preview/fire-logo-png-svg-free-download-fire-logo-11563553513c3wo0p7dt1.png" alt="img"/>
-        </div>))}
-        </div>
-        
-        </div>
-
-        <div id="down-inv">
-        <div id="flasks">
-        {new Array(6).fill().map(el => (
-        <div id="item-f">
-          <image id="item-inv-image" src="https://wiki.melvoridle.com/images/3/3e/Bronze_Sword_%28item%29.svg" alt="img"/>
-        </div>))}
-        </div>
-        </div>
+          {new Array(4).fill().map(el => (
+            <div id="item-s" className="item-card">
+              <img id="item-img" className="item-img-card" src="https://w7.pngwing.com/pngs/948/377/png-transparent-organic-food-melomakarono-honey-jar-ingredient-honey-glass-food-pie.png" alt="img"/>
+            </div>))}
 
       </div>  
+
+      <div id="hint-11" className="hint">ОРУЖИЕ</div>      
+      <div id="ramka-11" className="ramka-1"></div>
+
+      <div id="hint-12" className="hint">БРОНЯ</div>      
+      <div id="ramka-12" className="ramka-1"></div>
+
+      <div id="hint-13" className="hint">УМЕНИЕ</div>      
+      <div id="ramka-13" className="ramka-1"></div>
+
+      <div id="hint-14" className="hint">ЗЕЛЬЯ</div>      
+      <div id="ramka-14" className="ramka-big-1"></div>
 
       <img id="chain3" className="chain" src="chain.png" alt="img"/>
       <img id="chain4" className="chain" src="chain.png" alt="img"/>

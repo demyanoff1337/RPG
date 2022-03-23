@@ -370,6 +370,17 @@ body {
   z-index: 1;
 }
 
+.hint-2 {
+  font-size: 1.2vw;
+  position: absolute;
+  top: 33.49vw;
+  color: rgb(241, 225, 46);
+  background-color: #3f3e39;
+  text-shadow: 0.1vw 0.1vw 0.1vw rgb(2, 2, 2);
+  font-weight: bold;
+  z-index: 1;
+}
+
 #hint-1 {
   left: 5.25vw;
 }
@@ -386,6 +397,22 @@ body {
   left: 39.1vw;
 }
 
+#hint-11 {
+  left: 5.25vw;
+}
+
+#hint-12 {
+  left: 13.6vw;
+}
+
+#hint-13 {
+  left: 21.1vw;
+}
+
+#hint-14 {
+  left: 39.1vw;
+}
+
 .mr {
   margin-right: 1.9vw;
 }
@@ -395,6 +422,7 @@ body {
 }
 
 #item-s {
+  margin-top: 1.7vw;
   margin-right: 0.55vw;
 }
 
@@ -418,6 +446,26 @@ body {
   /* border-top: solid 0.3vw rgb(255, 236, 31); */
 }
 
+.ramka-1 {
+  position: absolute;
+  top: 34.1vw;
+  width: 7.2vw;
+  height: 7.6vw;
+  border-radius: 0.5vw;
+  border: solid 0.12vw rgb(255, 236, 31);
+  /* border-top: solid 0.3vw rgb(255, 236, 31); */
+}
+
+.ramka-big-1 {
+  position: absolute;
+  top: 34.1vw;
+  width: 27vw;
+  height: 7.6vw;
+  border-radius: 0.5vw;
+  border: solid 0.12vw rgb(255, 236, 31);
+  /* border-top: solid 0.3vw rgb(255, 236, 31); */
+}
+
 #ramka-1 {
   left: 4.5vw;
 }
@@ -434,6 +482,22 @@ body {
   left: 27.95vw;
 }
 
+#ramka-11 {
+  left: 4.5vw;
+}
+
+#ramka-12 {
+  left: 12.3vw;
+}
+
+#ramka-13 {
+  left: 20.1vw;
+}
+
+#ramka-14 {
+  left: 27.95vw;
+}
+
 #items {
   display: flex;
   width: 52vw;
@@ -442,7 +506,6 @@ body {
   position: absolute;
   top: 18vw;
   left: 3.74vw;
-  outline: solid 0.3vw rgb(53, 52, 47);
   border-radius: 1vw;
 }
 
@@ -467,7 +530,41 @@ body {
 #weapon {
   margin-left: 1.4vw;
   margin-top: 1.7vw;
+  z-index: 10;
 }
+
+#shield {
+  margin-top: 1.7vw;
+  margin-left: -0.16vw;
+}
+
+#magic {
+  margin-top: 1.7vw;
+  margin-left: -0.2vw;
+}
+
+/* #item-s3 {
+  margin-top: 1.7vw;
+} */
+
+/* #flask-items {
+  display: flex;
+  background-color: #0d0e0e;
+  width: 25vw;
+} */
+
+#inventory {
+  display: flex;
+  position: absolute;
+  top: 33.4vw;
+  left: 3.74vw;
+  width: 52vw;
+  height: 8.9vw;
+  background-color: #3d3b32;
+  border-radius: 1vw;
+}
+
+/*--------HOME--------*/
 
 
 .index-up {
@@ -2182,7 +2279,20 @@ body {
 /* ------RADE End */
 
 .go-front-10 {
+  background-color: transparent;
+  width: 100vw;
+  height: 10vw;
+  line-height: 10vw;
   z-index: 10;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.logo-square {
+  width: 7vw;
+  /* margin-top: 1vw; */
 }
 
 /* CHATIK */

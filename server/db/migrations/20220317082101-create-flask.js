@@ -8,20 +8,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      effect_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Effects',
-          key: 'id',
-        },
-        onDelete: 'cascade',
-      },
       title: {
         type: Sequelize.STRING
       },
       image: {
         type: Sequelize.TEXT
+      },
+      price: {
+        type: Sequelize.INTEGER,
+      },
+      HP: {
+        type: Sequelize.INTEGER,
+      },
+      damage: {
+        type: Sequelize.INTEGER,
+      },
+      armor: {
+        type: Sequelize.INTEGER,
+      },
+      critical: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

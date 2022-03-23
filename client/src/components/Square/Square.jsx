@@ -20,6 +20,14 @@ const Main = () => {
     }, 700);
   }
 
+  const goHome = (e) => {
+      navigate('/home');
+  }
+
+  const goMarket = (e) => {
+      navigate('/market');
+  }
+
   function script() {
     const home = document.querySelector('.home-img');
     const homeBox = document.querySelector('.home-box');
@@ -63,10 +71,10 @@ const Main = () => {
     <div class="go-go-go"></div>
     </div>
     
-    <div class="home-box"></div>
+    <div onClick={goHome} class="home-box"></div>
     <img class="market-img" src="market.png"/>
     
-    <div class="market-box"></div>
+    <div onClick={goMarket} class="market-box"></div>
     <img class="home-img" src="home.png"/>
 
     <img class="enemy-back-asset" src="back-for-enemy.png"/>
@@ -75,12 +83,12 @@ const Main = () => {
     <div onClick={goFight} class="enemy-box"></div>
     <img class="enemy-img" src="beaver1.svg"/>
 
-    <div class="go-front">
+    {/* <div class="go-front absolute"> */}
       {/* <div>nickname: {user.nickname}, name: {user.name}</div> */}
-      <button class="go-home-btn">
-        Home
+      {/* <button class="go-home-btn">
+        Home */}
         {/* <Link to='/home'>Дом</Link> */}
-      </button>
+      {/* </button>
       <button>
         <div onClick={goFight}>Драка</div>
       </button>
@@ -90,7 +98,7 @@ const Main = () => {
       <button>
         <Link to='/'>Торговцы</Link>
       </button>
-    </div>
+    </div> */}
     {/* <img class="" */}
     </>
   );
