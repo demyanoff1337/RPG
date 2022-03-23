@@ -8,8 +8,35 @@ require('dotenv').config();
 const cors = require('cors');
 const { User, Person } = require('./db/models');
 const PORT = process.env.PORT ?? 3001;
+const WebSocket = require('ws')
+
+const wss = new WebSocket.Server({
+  port: 8080
+}, () => console.log('Server started on 8080'))
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function (message) {
+    message = JSON.parse(message);
+    switch (message.event) {
+      case 'message':
+        broadcastMessage(message)
+        break;
+      case 'connection':
+        broadcastMessage(message)
+        break;
+    }
+  })
+})
+
+function broadcastMessage(message) {
+  wss.clients.forEach(client => {
+    client.send(JSON.stringify((message)))
+  })
+}
 
 var app = express();
+const userRouter = require('./routes/userRouter');
+const radeRouter = require('./routes/radeRouter');
 
 app.use(logger('dev'));
 app.use(cors());
@@ -55,6 +82,9 @@ app.get('/person/:id', async (req, res) => {
     return res.send(e);
   }
 });
+
+app.use('/user', userRouter);
+app.use('/rade', radeRouter);
 
 app.listen(PORT, () => {
   console.log(`Port ${PORT} started`);

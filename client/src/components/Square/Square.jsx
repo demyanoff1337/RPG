@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './Square.css'
+import Navbar from '../Navbar/Navbar';
 
 const Main = () => {
   const user = useSelector(store => store.user);
@@ -55,6 +55,7 @@ const Main = () => {
 
   return (
     <>
+    <Navbar/>
     <div class="on-load hide-animations-in">
     <img class="go-go-go" src="1.png"/>
     <img class="go-go-go" src="2.png"/>
@@ -71,7 +72,7 @@ const Main = () => {
     <img class="enemy-back-asset" src="back-for-enemy.png"/>
     <img class="square-back" src="square.png"/>
 
-    <div class="enemy-box"></div>
+    <div onClick={goFight} class="enemy-box"></div>
     <img class="enemy-img" src="beaver1.svg"/>
 
     <div class="go-front">
