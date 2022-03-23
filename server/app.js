@@ -6,7 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 require('dotenv').config();
 const cors = require('cors');
-const { User, Person } = require('./db/models');
+const { User, Person, Weapon, Skill, Flask, Armor, Inventory } = require('./db/models');
 const PORT = process.env.PORT ?? 3001;
 const WebSocket = require('ws')
 
@@ -82,6 +82,71 @@ app.get('/person/:id', async (req, res) => {
     return res.send(e);
   }
 });
+
+app.get('/inv/:id', async (req, res) => {
+  try {
+    const inventory = await Inventory.findOne({ where: { id: Number(req.params.id) } });
+    if (inventory) {
+      return res.json(inventory);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/weap/:id', async (req, res) => {
+  try {
+    const weapon = await Weapon.findOne({ where: { id: Number(req.params.id) } });
+    if (weapon) {
+      return res.json(weapon);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/arm/:id', async (req, res) => {
+  try {
+    const armor = await Armor.findOne({ where: { id: Number(req.params.id) } });
+    if (armor) {
+      return res.json(armor);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/fire/:id', async (req, res) => {
+  try {
+    const fire = await Skill.findOne({ where: { id: Number(req.params.id) } });
+    if (fire) {
+      return res.json(fire);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/flask1/:id', async (req, res) => {
+  try {
+    const flask = await Flask.findOne({ where: { id: Number(req.params.id) } });
+    if (flask) {
+      return res.json(flask);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    console.log('tut')
+    return res.send(e);
+  }
+});
+
+
+
+
 
 app.use('/user', userRouter);
 app.use('/rade', radeRouter);
