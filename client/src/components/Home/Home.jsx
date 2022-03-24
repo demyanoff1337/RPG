@@ -41,34 +41,34 @@ const Home = () => {
     { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
   ]);
 
-  const [cardList2, setCardList2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [armorList2, setArmorList2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [fireList2, setFireList2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [flask1List2, setFlask1List2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [flask2List2, setFlask2List2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [flask3List2, setFlask3List2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
-  const [flask4List2, setFlask4List2] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
+  // const [cardList2, setCardList2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [armorList2, setArmorList2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [fireList2, setFireList2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [flask1List2, setFlask1List2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [flask2List2, setFlask2List2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [flask3List2, setFlask3List2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
+  // const [flask4List2, setFlask4List2] = useState([
+  //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
+  //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+  // ]);
   const user = useSelector(store => store.user);
 
   useEffect(() => {
@@ -76,6 +76,7 @@ const Home = () => {
       try {
         let invent2;
         let pers;
+        let wep1, wep2, arm1, arm2, fire1, fire2, med1, med2, med3, med4, med5, med6, med7, med8;
         let response = await fetch(`/person/1`); // user_id
         if (response.ok) {
           const persona = await response.json();
@@ -101,11 +102,12 @@ const Home = () => {
         if (response.ok) {
           const weap = await response.json();
           weap.img = weap.image || 'empty.png';
+          wep1 = weap;
           pers.damage += weap.damage;
           if (weap.failed) {
             alert('Something went wrong')
           } else {
-            setCardList([weap, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setCardList([weap, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -114,10 +116,11 @@ const Home = () => {
           const arm = await response.json();
           arm.img = arm.image || 'empty.png';
           pers.armor += arm.armor;
+          arm1 = arm;
           if (arm.failed) {
             alert('Something went wrong')
           } else {
-            setArmorList([arm, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setArmorList([arm, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -126,11 +129,12 @@ const Home = () => {
           const fire = await response.json();
           fire.img = fire.image || 'empty.png';
           pers.damage += fire.damage;
+          fire1 = fire;
           setPerson(pers);
           if (fire.failed) {
             alert('Something went wrong')
           } else {
-            setFireList([fire, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setFireList([fire, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -138,10 +142,11 @@ const Home = () => {
         if (response.ok) {
           const flask = await response.json();
           flask.img = flask.image || 'empty.png';
+          med1 = flask;
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask1List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setFlask1List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -149,10 +154,11 @@ const Home = () => {
         if (response.ok) {
           const flask = await response.json();
           flask.img = flask.image || 'empty.png';
+          med3 = flask;
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask2List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setFlask2List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -160,10 +166,11 @@ const Home = () => {
         if (response.ok) {
           const flask = await response.json();
           flask.img = flask.image || 'empty.png';
+          med5 = flask;
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask3List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setFlask3List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -171,10 +178,11 @@ const Home = () => {
         if (response.ok) {
           const flask = await response.json();
           flask.img = flask.image || 'empty.png';
+          med7 = flask;
           if (flask.failed) {
-            alert('Something went wrong')
+            alert('Something went wrong');
           } else {
-            setFlask4List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            // setFlask4List([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
           }
         }
 
@@ -185,9 +193,9 @@ const Home = () => {
           const weap = await response.json();
           weap.img = weap.image || 'empty.png';
           if (weap.failed) {
-            alert('Something went wrong')
+            alert('Something went wrong');
           } else {
-            setCardList2([weap, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setCardList([wep1, weap]);
           }
         }
 
@@ -196,9 +204,9 @@ const Home = () => {
           const arm = await response.json();
           arm.img = arm.image || 'empty.png';
           if (arm.failed) {
-            alert('Something went wrong')
+            alert('Something went wrong');
           } else {
-            setArmorList2([arm, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setArmorList([arm1, arm]);
           }
         }
 
@@ -207,9 +215,9 @@ const Home = () => {
           const fire = await response.json();
           fire.img = fire.image || 'empty.png';
           if (fire.failed) {
-            alert('Something went wrong')
+            alert('Something went wrong');
           } else {
-            setFireList2([fire, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setFireList([fire1, fire]);
           }
         }
 
@@ -218,9 +226,9 @@ const Home = () => {
           const flask = await response.json();
           flask.img = flask.image || 'empty.png';
           if (flask.failed) {
-            alert('Something went wrong')
+            alert('Something went wrong');
           } else {
-            setFlask1List2([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setFlask1List([med1, flask]);
           }
         }
 
@@ -231,7 +239,7 @@ const Home = () => {
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask2List2([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setFlask2List([med3, flask]);
           }
         }
 
@@ -242,7 +250,7 @@ const Home = () => {
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask3List2([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setFlask3List([med5, flask]);
           }
         }
 
@@ -253,7 +261,7 @@ const Home = () => {
           if (flask.failed) {
             alert('Something went wrong')
           } else {
-            setFlask4List2([flask, { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' }]);
+            setFlask4List([med7, flask]);
           }
         }
 
@@ -264,9 +272,6 @@ const Home = () => {
     getPerson();
   }, []);
 
-  const [cardFlasc, setCardFlasc] = useState([
-    { id: 1, order: 3, type: 'flasc', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
-  ]);
 
 
   const [currentCard, setCurrentCard] = useState(null) // состояние что бы запоминать новую карточку
@@ -274,12 +279,12 @@ const Home = () => {
   // const [dragOver, setDragOver] = useState(null)
 
   // console.log('currentFlasc', currentFlasc);
-  const w = document.getElementById('weapon');
-  const a = document.getElementById('shield');
+  // const w = document.getElementById('weapon');
+  // const a = document.getElementById('shield');
   function dragStartHandler(e, card) {
     setCurrentCard(card)
-    a.classList.add('z-index');
-    console.log(a);
+    // a.classList.add('z-index');
+    // console.log(a);
     // setCurrentFlasc(card)
   }
   function dragEndHandler(e, card) {
@@ -288,9 +293,11 @@ const Home = () => {
   function dragOverHandler(e, card) {
     e.preventDefault()
   }
-  function dropHandler(e, card) {
+  async function dropHandler(e, card) {
     e.preventDefault()
+      const item = cardList[1];    
       setCardList([cardList[1], cardList[0]]);
+      const response = await fetch(`/weapon-set/${item.id}/${person.id}`);
   }
 
 
@@ -323,8 +330,74 @@ const Home = () => {
   }
   function dropHandler3(e, card) { 
     e.preventDefault() 
-      setFireList([armorList[1], armorList[0]]);    
+      setFireList([fireList[1], fireList[0]]);    
   }
+
+  function dragStartHandler4(e, card) {
+    setCurrentCard(card)
+    // setCurrentFlasc(card)
+
+  }
+  function dragEndHandler4(e, card) {
+
+  }
+  function dragOverHandler4(e, card) {
+    e.preventDefault()
+  }
+  function dropHandler4(e, card) { 
+    e.preventDefault() 
+      setFlask1List([flask1List[1], flask1List[0]]);    
+  }
+
+  function dragStartHandler5(e, card) {
+    setCurrentCard(card)
+    // setCurrentFlasc(card)
+
+  }
+  function dragEndHandler5(e, card) {
+
+  }
+  function dragOverHandler5(e, card) {
+    e.preventDefault()
+  }
+  function dropHandler5(e, card) { 
+    e.preventDefault() 
+      setFlask2List([flask2List[1], flask2List[0]]);    
+  }
+
+  function dragStartHandler6(e, card) {
+    setCurrentCard(card)
+    // setCurrentFlasc(card)
+
+  }
+  function dragEndHandler6(e, card) {
+
+  }
+  function dragOverHandler6(e, card) {
+    e.preventDefault()
+  }
+  function dropHandler6(e, card) { 
+    e.preventDefault() 
+      setFlask3List([flask3List[1], flask3List[0]]);    
+  }
+
+  function dragStartHandler7(e, card) {
+    setCurrentCard(card)
+    // setCurrentFlasc(card)
+
+  }
+  function dragEndHandler7(e, card) {
+
+  }
+  function dragOverHandler7(e, card) {
+    e.preventDefault()
+  }
+  function dropHandler7(e, card) { 
+    e.preventDefault() 
+      setFlask4List([flask4List[1], flask4List[0]]);    
+  }
+
+  
 
   return ( <div id="home">
     <div id="left">
@@ -457,19 +530,47 @@ const Home = () => {
 
           {/* <div id="flask-items"> */}
           {/* {new Array(4).fill().map((el, i) => ( */}
-            <div id={`item-s`} className="item-card">
+            <div
+            onDragStart={(e) => dragStartHandler4(e, flask1List[0])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler4(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler4(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler4(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler4(e, flask1List[0])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true}  
+            id={`item-s`} className="item-card">
               <img id="item-img" className="item-img-card" src={flask1List[0].img} alt="img"/>
             </div>
 
-            <div id={`item-s`} className="item-card">
+            <div 
+            onDragStart={(e) => dragStartHandler5(e, flask2List[0])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler5(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler5(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler5(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler5(e, flask2List[0])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id={`item-s`} className="item-card">
             <img id="item-img" className="item-img-card" src={flask2List[0].img} alt="img"/>
             </div>
 
-            <div id={`item-s`} className="item-card">
+            <div 
+            onDragStart={(e) => dragStartHandler6(e, flask3List[0])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler6(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler6(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler6(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler6(e, flask3List[0])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id={`item-s`} className="item-card">
               <img id="item-img" className="item-img-card" src={flask3List[0].img} alt="img"/>
             </div>
 
-            <div id={`item-s`} className="item-card">
+            <div
+            onDragStart={(e) => dragStartHandler7(e, flask4List[0])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler7(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler7(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler7(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler7(e, flask4List[0])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id={`item-s`} className="item-card">
               <img id="item-img" className="item-img-card" src={flask4List[0].img} alt="img"/>
             </div>
             {/* ))} */}
@@ -499,7 +600,7 @@ const Home = () => {
       onDrop={(e) => dropHandler(e, cardList[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
       draggable={true} 
       id="weapon" className="item-card mr-2">
-            <img id="item-img" className="item-img-card" src={cardList2[0].img} alt="ima"/>
+            <img id="item-img" className="item-img-card" src={cardList[1].img} alt="ima"/>
           </div>
           <div 
           onDragStart={(e) => dragStartHandler2(e, armorList[1])} //срабатывает в тот момент когда мы взяли карточку
@@ -509,7 +610,7 @@ const Home = () => {
           onDrop={(e) => dropHandler2(e, armorList[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
           draggable={true} 
           id="shield"  className="item-card mr-2">
-            <img id="item-img" className="item-img-card" src={armorList2[0].img} alt="ima"/>
+            <img id="item-img" className="item-img-card" src={armorList[1].img} alt="ima"/>
           </div>
             <div 
             onDragStart={(e) => dragStartHandler3(e, fireList[1])} //срабатывает в тот момент когда мы взяли карточку
@@ -519,25 +620,53 @@ const Home = () => {
             onDrop={(e) => dropHandler3(e, fireList[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
             draggable={true} 
             id="magic" className="item-card mr">
-          <img id="item-img" className="item-img-card" src={fireList2[0].img} alt="img"/>
+          <img id="item-img" className="item-img-card" src={fireList[1].img} alt="img"/>
           </div>
 
 
           {/* {new Array(4).fill().map(el => ( */}
-            <div id="item-s" className="item-card">
-              <img id="item-img" className="item-img-card" src={flask1List2[0].img} alt="img"/>
+            <div 
+            onDragStart={(e) => dragStartHandler4(e, flask1List[1])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler4(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler4(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler4(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler4(e, flask1List[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id="item-s" className="item-card">
+              <img id="item-img" className="item-img-card" src={flask1List[1].img} alt="img"/>
             </div>
 
-            <div id="item-s" className="item-card">
-              <img id="item-img" className="item-img-card" src={flask2List2[0].img} alt="img"/>
+            <div 
+            onDragStart={(e) => dragStartHandler5(e, flask2List[1])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler5(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler5(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler5(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler5(e, flask2List[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id="item-s" className="item-card">
+              <img id="item-img" className="item-img-card" src={flask2List[1].img} alt="img"/>
             </div>
 
-            <div id="item-s" className="item-card">
-              <img id="item-img" className="item-img-card" src={flask3List2[0].img} alt="img"/>
+            <div 
+            onDragStart={(e) => dragStartHandler6(e, flask3List[1])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler6(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler6(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler6(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler6(e, flask3List[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id="item-s" className="item-card">
+              <img id="item-img" className="item-img-card" src={flask3List[1].img} alt="img"/>
             </div>
 
-            <div id="item-s" className="item-card">
-              <img id="item-img" className="item-img-card" src={flask4List2[0].img} alt="img"/>
+            <div 
+            onDragStart={(e) => dragStartHandler7(e, flask4List[1])} //срабатывает в тот момент когда мы взяли карточку
+            onDragLeave={(e) => dragEndHandler7(e)} // срабатывает если мы вышли за пределы другой карттчки
+            onDragEnd={(e) => dragEndHandler7(e)} // если мы отпустили перемещение
+            onDragOver={(e) => dragOverHandler7(e)} //если мы находимся над другим объектом
+            onDrop={(e) => dropHandler7(e, flask4List[1])} //если мы отпустили карточку и рассчитываем что должно произойти событие связанное с этим действие
+            draggable={true} 
+            id="item-s" className="item-card">
+              <img id="item-img" className="item-img-card" src={flask4List[1].img} alt="img"/>
             </div>
             {/* ))} */}
 

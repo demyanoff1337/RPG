@@ -63,7 +63,7 @@ const Main = () => {
 
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <div class="on-load hide-animations-in">
     <img class="go-go-go" src="1.png"/>
     <img class="go-go-go" src="2.png"/>

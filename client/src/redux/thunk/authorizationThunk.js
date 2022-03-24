@@ -36,7 +36,7 @@ export const signupThunk = (formData, navigate) => {
       user.name = name;
       user.role = role.role_name;
       dispatch(login(user));
-      navigate('/');
+      navigate('/square');
     } else if (responce.status === 234) {
       alert('Пользователь с такой электронной почтой уже существует');
     }
