@@ -13,6 +13,7 @@ const Carousel = ({ children }) => {
   const [offset, setOffset] = useState(0)
 
 
+  // логика левой кнопки
   const handleLeftArrowClick = () => {
     console.log('left');
 
@@ -23,14 +24,12 @@ const Carousel = ({ children }) => {
     })
   }
 
-
+  // логика правой кнопки
   const handleRightArrowClick = () => {
     console.log('right');
 
     setOffset((currentOffset) => {
       const newOffset = currentOffset - PAGE_WIDTH
-
-
       const maxOffset = -(PAGE_WIDTH * (pages.length - 1))
       return Math.max(newOffset, maxOffset)
     })
@@ -38,8 +37,10 @@ const Carousel = ({ children }) => {
 
 
   useEffect(() => {
+    console.log('in corrrr');
     setPages(
       Children.map(children, child => {
+        console.log(children);
         return cloneElement(child, {
           style: {
             height: '100%',
@@ -54,26 +55,25 @@ const Carousel = ({ children }) => {
 
   return (
     <div>
-<div className="main-container">
-      <button type="button" className='arrow' onClick={handleLeftArrowClick}>{'<---'}</button>
-      <div className="window">
-        <div
-          className="all-pages-container"
+      <div className="main-container">
+        <button type="button" className='arrow' onClick={handleLeftArrowClick}>{'<---'}</button>
+        <div className="window">
+          <div
+            className="all-pages-container"
 
-          style={{
-            transform: `translateX(${offset}px)`
-          }}
+            style={{
+              transform: `translateX(${offset}px)`
+            }}
           >
-          {pages}
+            {pages}
+          </div>
         </div>
+        <button type="button" className='arrow' onClick={handleRightArrowClick}>{'--->'}</button>
+
       </div>
-      <button type="button" className='arrow' onClick={handleRightArrowClick}>{'--->'}</button>
-      
+      <button>Купить</button>
     </div>
-    <button>Купить</button>
-    </div>
-    
-    
+
   );
 }
 

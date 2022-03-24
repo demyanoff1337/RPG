@@ -34,7 +34,7 @@ module.exports = {
         price: 350,
         damage: 230,
         critical: 20,
-        image: 'weapon-1.png',
+        image: 'weapon-4.png',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

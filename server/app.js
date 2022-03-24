@@ -37,6 +37,10 @@ function broadcastMessage(message) {
 var app = express();
 const userRouter = require('./routes/userRouter');
 const radeRouter = require('./routes/radeRouter');
+const weaponRouter = require('./routes/weaponRouter');
+const flascRouter = require('./routes/flaskRouter');
+const skillRouter = require('./routes/skillRouter');
+const armorRouter = require('./routes/armorRouter');
 
 app.use(logger('dev'));
 app.use(cors());
@@ -143,11 +147,131 @@ app.get('/flask1/:id', async (req, res) => {
   }
 });
 
-app.get('/weapon-set/:id/:person_id', async (req, res) => {
+app.get('/weapon-set/:id/:id2/:person_id', async (req, res) => {
   try {
     const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
     if (user) {
-      user.weapon_id = Number(req.params.id);
+      user.weapon = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.weapon = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/armor-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.armor_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.armor_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/fire-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.skill_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.skill_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/flask1-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.flask1_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.flask1_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/flask2-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.flask2_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.flask2_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/flask3-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.flask3_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.flask3_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/flask4-set/:id/:id2/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
+    if (user) {
+      user.flask4_id = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.save();
+      inv.flask4_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
+
+app.get('/money-exp/:id/:money/:exp', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.id) } });
+    if (user) {
+      user.money = Number(req.params.money);
+      user.exp = Number(req.params.exp);
       user.save();
       return res.sendStatus(200);
     }
@@ -158,9 +282,12 @@ app.get('/weapon-set/:id/:person_id', async (req, res) => {
 });
 
 
-
 app.use('/user', userRouter);
 app.use('/rade', radeRouter);
+app.use('/weapon', weaponRouter);
+app.use('/armor', armorRouter);
+app.use('/flasc', flascRouter);
+app.use('/skill', skillRouter);
 
 app.listen(PORT, () => {
   console.log(`Port ${PORT} started`);

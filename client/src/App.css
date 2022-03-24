@@ -11,7 +11,7 @@ body {
 
 .App-background {
   /* background-color: rgb(103, 128, 228); */
-  background-image: linear-gradient(180deg, #574c2f 0%, #2e2f3e 74%);
+  background-image: linear-gradient(180deg, #3a3b35 0%, #373833 74%);
   /* background-image: linear-gradient(180deg, #4d919a 0%, #32335a 74%); */
 }
 
@@ -199,7 +199,8 @@ body {
 
 .exit-home:hover {
   cursor: pointer;
-  background-color: #fa7f6f;;
+  background-color: #fa7f6f;
+  ;
 }
 
 #username-incard {
@@ -965,10 +966,12 @@ body {
     width: 4vw;
     opacity: 0.1;
   }
+
   50% {
     width: 6vw;
     opacity: 1;
   }
+
   to {
     width: 4vw;
     opacity: 0.1;
@@ -1029,9 +1032,11 @@ body {
   from {
     left: 3.5vw;
   }
+
   50% {
     left: 0.5vw;
   }
+
   to {
     left: 3.5vw;
   }
@@ -1041,9 +1046,11 @@ body {
   from {
     left: 3.5vw;
   }
+
   50% {
     left: -2.5vw;
   }
+
   to {
     left: 3.5vw;
   }
@@ -1328,9 +1335,11 @@ body {
   from {
     left: 78.5vw;
   }
+
   50% {
     left: 81.5vw;
   }
+
   to {
     left: 78.5vw;
   }
@@ -1340,9 +1349,11 @@ body {
   from {
     left: 78.5vw;
   }
+
   50% {
     left: 84.5vw;
   }
+
   to {
     left: 78.5vw;
   }
@@ -1649,7 +1660,7 @@ body {
   font-size: 7vw;
   font-weight: bold;
   z-index: 5;
-  background-color: #3a3730; 
+  background-color: #3a3730;
   width: 60vw;
   height: 25vw;
   top: 12vw;
@@ -1667,7 +1678,7 @@ body {
 .fight-end-lose {
   color: #c03b3b;
   border-color: #c03b3b;
-} 
+}
 
 .fight-money {
   position: absolute;
@@ -1748,6 +1759,7 @@ body {
   from {
     opacity: 0.5;
   }
+
   to {
     opacity: 1;
   }
@@ -1757,6 +1769,7 @@ body {
   from {
     opacity: 0.1;
   }
+
   to {
     opacity: 0.8;
   }
@@ -1774,7 +1787,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 50vw;
-  background-color: #575852;
+  background-color: #989a91;
   right: 50vw;
   top: 0vw;
   transform: skew(-32deg);
@@ -1798,6 +1811,7 @@ body {
     right: 50vw;
     top: 0vw;
   }
+
   to {
     right: 18vw;
     top: -51.2vw;
@@ -1809,6 +1823,7 @@ body {
     left: 41.9vw;
     top: 14vw;
   }
+
   to {
     left: 73.9vw;
     top: -37.2vw;
@@ -1819,7 +1834,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 50vw;
-  background-color: #3a3a35;
+  background-color: #77776d;
   left: 50vw;
   top: 0vw;
   transform: skew(-32deg);
@@ -1844,6 +1859,7 @@ body {
     left: 50vw;
     top: 0vw;
   }
+
   to {
     left: 18vw;
     top: 52.8vw;
@@ -1855,10 +1871,15 @@ body {
     left: 43.4vw;
     top: 14vw;
   }
+
   to {
     left: 11.4vw;
     top: 66.8vw;
   }
+}
+
+.delay02 {
+  animation-delay: 0.2s;
 }
 
 /* -------------- */
@@ -1867,7 +1888,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 50vw;
-  background-color: #575852;
+  background-color: #989a91;
   right: 50vw;
   top: 0vw;
   transform: skew(-32deg);
@@ -1889,6 +1910,7 @@ body {
     right: 82vw;
     top: 52.8vw;
   }
+
   to {
     right: 50vw;
     top: 0vw;
@@ -1900,6 +1922,7 @@ body {
     left: 9.9vw;
     top: 66.8vw;
   }
+
   to {
     left: 41.9vw;
     top: 14vw;
@@ -1910,7 +1933,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 50vw;
-  background-color: #3a3a35;
+  background-color: #77776d;
   left: 50vw;
   top: 0vw;
   transform: skew(-32deg);
@@ -1933,6 +1956,7 @@ body {
     left: 82vw;
     top: -52.8vw;
   }
+
   to {
     left: 50vw;
     top: 0vw;
@@ -1944,7 +1968,8 @@ body {
     left: 75.4vw;
     top: -38.8vw;
   }
-  to { 
+
+  to {
     left: 43.4vw;
     top: 14vw;
   }
@@ -1953,6 +1978,7 @@ body {
 .hide-animations-in {
   display: none;
 }
+
 /* background-color: #deb136;
   border-radius: 2vw;
   outline: solid 0.6vw rgb(175, 144, 76); */
@@ -1976,6 +2002,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1985,6 +2012,7 @@ body {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -2013,9 +2041,11 @@ body {
   from {
     top: 27vw;
   }
+
   50% {
     top: 28vw;
   }
+
   to {
     top: 27vw;
   }
@@ -2025,9 +2055,11 @@ body {
   from {
     top: 28vw;
   }
+
   50% {
     top: 27vw;
   }
+
   to {
     top: 28vw;
   }
@@ -2077,6 +2109,7 @@ body {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -2086,9 +2119,11 @@ body {
   from {
     top: 30vw;
   }
+
   50% {
     top: 31vw;
   }
+
   to {
     top: 30vw;
   }
@@ -2098,9 +2133,11 @@ body {
   from {
     top: 31vw;
   }
+
   50% {
     top: 30vw;
   }
+
   to {
     top: 31vw;
   }
@@ -2218,10 +2255,11 @@ body {
   z-index: 3;
   width: 14vw;
   height: 14vw;
-  left: 40.3vw;
+  left: 41.7vw;
   top: 18.2vw;
   -webkit-filter: brightness(0.8);
   filter: brightness(0.8);
+  transform: scaleX(-1);
 }
 
 .go-bright-2 {
@@ -2329,62 +2367,497 @@ body {
 
 /* CHATIK */
 
-.center-chat {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
-}
-
 .form {
-  padding: 20px;
-  width: 300px;
-  border-radius: 20px;
-  border: 10px solid rgba(129, 98, 53, 0.52);
-  display: flex;
-  flex-direction: column;
-  background-color: #deb136;
+  position: absolute;
+  top: 1vw;
+  left: 64vw;
+  width: 30vw;
+  border-radius: 5vw;
+  border: 0.5vw solid rgb(23 25 27);
+  height: 10vw;
+  background-color: #2c3134;
 }
 
-.form input  {
-  min-width: 150px;
-  width: 200px;
-  padding: 5px 10px;
-  border: teal 1px solid;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+.form input {
+  position: absolute;
+  width: 26vw;
+  height: 4vw;
+  left: 1.5vw;
+  top: 1vw;
+  text-align: center;
+  font-size: 2.5vw;
+  border: black 0.2vw solid;
+  border-radius: 2vw;
+  background-color: rgb(199 226 244);
+}
+
+.form input:focus {
+  background-color: rgb(237, 243, 248);;
 }
 
 .form button {
-  margin-top: 10px;
-  margin-left: auto;
-  border: teal 1px solid;
+  position: absolute;
+  border: teal 0.2vw solid;
   background: none;
-  padding: 20px 20px;
   font-weight: bold;
+  font-size: 2vw;
   color: teal;
   cursor: pointer;
+  left: 6.3vw;
+  width: 17vw;
+  border-radius: 4vw;
+  top: 6.1vw;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
 }
 
-.form button:focus, .form input:focus {
+.form button:hover {
+  border: rgb(75, 233, 233) 0.2vw solid;
+  color: rgb(75, 233, 233);
+  background-color: #41535a;
+}
+
+.chat-fire {
+  position: absolute;
+  top: 20.9vw;
+  left: 34.5vw;
+  width: 18vw;
+  -webkit-filter: brightness(0.75) blur(0.15vw);
+  filter: brightness(0.75) blur(0.15vw);
+}
+
+.chat-back {
+  position: absolute;
+  width: 117vw;
+  top: -20vw;
+  left: -17vw;
+  transform: scaleX(-1);
+}
+
+
+/* .form button:focus,
+.form input:focus {
   outline: none;
 }
 
 .connection_message {
   width: 400px;
-  text-align: center;
+  text-align: center; */
 
+/* } */
+
+.messages {
+  position: absolute;
+  font-size: 1vw;
+  top: 14vw;
+  left: 65vw;
+  width: 40vw;
+  height: 34.5vw;
+  overflow: hidden;
 }
 
 .message {
-  width: 300px;
-  border: 2px solid black;
+  width: 29vw;
+  left: 62vw;
+  line-height: 3vw;
+  margin-left: 0vw;
+  font-size: 1.5vw;
+  border: 0.2vw solid rgb(49, 56, 57);
   background-color: yellowgreen;
-  border-radius: 30px;
-  padding: 20px;
-  margin-top: 7px;
+  border-radius: 1.5vw;
 }
+
+.username-c {
+  color: #000000;
+  font-weight: bold;
+}
+
 .user {
   color: #4acff0;
 }
+
+.connection_message {
+  text-shadow: 0.1vw 0.1vw 0.1vw black;
+}
+
+.back-from-chat {
+  position: absolute;
+  width: 6vw;
+  top: 2vw;
+  left: 2vw;
+  height: 6vw;
+  background-color: #373833;
+  z-index: 4;
+  border-radius: 3vw;
+  outline: solid 0.3vw teal;
+  font-size: 4vw;
+  line-height: 5.2vw;
+  text-align: center;
+  color: teal;
+  transition: color 0.3s, outline 0.3s, background-color 0.3s;
+}
+
+.back-from-chat:hover {
+  color: rgb(75, 233, 233);
+  background-color: #41535a;
+  outline: solid 0.3vw rgb(75, 233, 233);
+  cursor: pointer;
+}
+
 /* Стили чата*/
+
+.login-f {
+  position: absolute;
+  width: 40vw;
+  height: 20vw;
+  /* background-color: #5a5b66; */
+  left: 26.3vw;
+  top: 15vw;
+  transform: skew(-32deg);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.login-f input {
+  transform: skew(32deg);
+}
+
+.login-f button {
+  transform: skew(32deg);
+}
+
+.ff {
+  position: absolute;
+  font-size: 2vw;
+}
+
+.mail-f {
+  top: 1.6vw;
+  left: 8vw;
+}
+
+.pass-f {
+  top: 6vw;
+  left: 8vw;
+}
+
+.btn-f {
+  position: absolute;
+  top: 15.5vw;
+  left: 15vw;
+  width: 10vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  background-color: #deb136;
+  border-radius: 2vw;
+  outline: solid 0.4vw rgb(175, 144, 76);
+  transition: font-size 0.2s, background-color 0.2s;
+}
+
+.btn-f:hover {
+  font-size: 1.7vw;
+  background-color: #eecc6e;
+  cursor: pointer;
+}
+
+.btn-ff {
+  position: absolute;
+  top: 15.5vw;
+  left: 10vw;
+  width: 20vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  background-color: #deb136;
+  border-radius: 2vw;
+  outline: solid 0.4vw rgb(175, 144, 76);
+  transition: font-size 0.2s, background-color 0.2s;
+}
+
+.btn-ff:hover {
+  font-size: 1.7vw;
+  background-color: #eecc6e;
+  cursor: pointer;
+}
+
+.grey {
+  position: absolute;
+  width: 40vw;
+  height: 20vw;
+  background-color: #5a5b66;
+  left: 26.3vw;
+  top: 15vw;
+  transform: skew(-32deg);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.form-in {
+  animation: form-in 0.6s linear
+}
+
+@keyframes form-in {
+  from {
+    width: 0vw;
+    left: 46.3vw;
+  }
+
+  to {
+    width: 40vw;
+    left: 26.3vw;
+  }
+}
+
+.form-out {
+  animation: form-out 0.6s linear
+}
+
+@keyframes form-out {
+  from {
+    width: 40vw;
+    left: 26.3vw;
+  }
+
+  to {
+    width: 0vw;
+    left: 46.3vw;
+  }
+}
+
+.logo-rr {
+  position: absolute;
+  right: 8vw;
+  height: 50vw;
+  z-index: 1;
+}
+
+.logo-ll {
+  position: absolute;
+  left: 8vw;
+  height: 50vw;
+  z-index: 1;
+}
+
+.logo-ll-in {
+  animation: logo-ll-in 0.6s linear;
+}
+
+@keyframes logo-ll-in {
+  from {
+    left: 27.8vw;
+  }
+
+  to {
+    left: 8vw;
+  }
+}
+
+.logo-ll-out {
+  animation: logo-ll-out 0.6s linear;
+}
+
+@keyframes logo-ll-out {
+  from {
+    left: 8vw;
+  }
+
+  to {
+    left: 27.8vw;
+  }
+}
+
+.logo-rr-in {
+  animation: logo-rr-in 0.6s linear;
+}
+
+@keyframes logo-rr-in {
+  from {
+    right: 27.8vw;
+  }
+
+  to {
+    right: 8vw;
+  }
+}
+
+.logo-rr-out {
+  animation: logo-rr-out 0.6s linear;
+}
+
+@keyframes logo-rr-out {
+  from {
+    right: 8vw;
+  }
+
+  to {
+    right: 27.8vw;
+  }
+}
+
+.login-back {
+  height: 68vw;
+  margin-top: -6vw;
+  /* opacity: 0.8; */
+  /* -webkit-filter: drop-shadow(white); */
+}
+
+.unscew {
+  transform: skew(32deg);
+}
+
+.form-check-input-1 {
+  position: absolute;
+  left: 12.5vw;
+  top: 11.9vw;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.form-check-input-2 {
+  position: absolute;
+  left: 26.6vw;
+  top: 11.9vw;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.ezh {
+  position: absolute;
+  top: 12vw;
+  left: 9.5vw;
+  font-size: 1.5vw;
+  color: rgb(221, 221, 87);
+}
+
+.bobr {
+  position: absolute;
+  top: 12vw;
+  left: 22vw;
+  font-size: 1.5vw;
+  color: rgb(221, 221, 87);
+}
+
+.avatar {
+  position: absolute;
+  top: 5vw;
+  left: 5vw;
+  width: 20vw;
+  height: 4vw;
+}
+
+.stall {
+  position: absolute;
+  width: 30vw;
+  top: 24.6vw;
+}
+
+.st1 {
+  left: -1vw;
+}
+
+.st2 {
+  left: 23vw;
+}
+
+.st3 {
+  left: 47vw;
+}
+
+.st4 {
+  left: 71vw;
+}
+
+.xd {
+  position: absolute;
+  transform: skew(32deg);
+  font-size: 1.5vw;
+  color: #c2c280;
+}
+
+.noxd {
+  top: 10vw;
+  left: 14vw;
+}
+
+.noxd2 {
+  top: 12vw;
+  left: 12vw;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.noxd2:hover {
+  cursor: pointer;
+  color: yellow;
+}
+
+.xdd {
+  position: absolute;
+  font-size: 1.4vw;
+  left: 9vw;
+  width: 20vw;
+}
+
+.nick {
+  top: 1vw;
+}
+
+.email {
+  top: 3.5vw;
+}
+
+.passw {
+  top: 6vw;
+}
+
+.passw2 {
+  top: 8.5vw;
+}
+
+input:focus {
+  background-color: rgb(255, 255, 166);
+}
+
+.firekit {
+  position: absolute;
+  z-index: 10;
+  width: 9vw;
+  top: 32vw;
+  left: 55vw;
+  -webkit-filter: brightness(0.8) blur(0.05vw);
+  filter: brightness(0.8) blur(0.05vw);
+}
+
+.fire-shadow {
+  position: absolute;
+  z-index: 9;
+  top: 43.8vw;
+  left: 54.4vw;
+  width: 10vw;
+  height: 3vw;
+  background-color: #2d2e2e;
+  transform: rotate(-4deg);
+  opacity: 0.3;
+  border-radius: 10vw/5vw;
+}
+
+.my-img {
+  z-index: 5;
+  position: absolute;
+  width: 20vw;
+  top: 25vw;
+  left: 8vw;
+}
+
+.chat-s {
+  position: absolute;
+  z-index: 7;
+  width: 8vw;
+  top: 40.5vw;
+  right: 2vw;
+  transform: rotate(-51deg);
+  opacity: 0.6;
+}
+
+.chat-s:hover {
+  opacity: 1;
+  cursor: pointer;
+}
