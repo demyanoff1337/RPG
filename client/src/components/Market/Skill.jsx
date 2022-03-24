@@ -1,18 +1,102 @@
-import Carousel from "./Carousel/Carousel";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import styles from './Carousel/Slider.module.css';
+import cn from 'classnames'
 
 
 const Flask = () => {
-  return ( <Carousel>
-    <div className="item item-1">
-      <img src="https://avatars.mds.yandex.net/i?id=57f5b6c832726114a35edef76f0335ea-5869499-images-thumbs&n=13&exp=1" alt="" />
+
+
+  const slider = useRef(null)
+  const me = useSelector(store => store.user);
+
+  const [skill, setSkill] = useState([]);
+  const [inventory, setInventory] = useState({});
+
+  const [prev, setPrev] = useState(false)
+  const [next, setNext] = useState(false)
+  
+  let position = 0;
+ 
+
+
+  useEffect(() => {
+    async function getSkill() {
+      try {
+        let response = await fetch('/skill');
+        if (response.ok) {
+         let skills = await response.json();
+          console.log(skill);
+          if (skills.failed) {
+            alert('Something went wrong')
+          } else {
+            console.log(skills)
+            setSkill(skills);
+
+          }
+        }
+      } catch (e) {
+        alert(e)
+      }
+    }
+    getSkill()
+    // script()
+  }, [])
+
+
+  const prevHandler = () => {
+    if (position === 0){
+      setPrev(true)
+    } else {
+      position += 300
+      console.log(slider);
+      slider.current.childNodes.forEach((element) => {
+        element.style = `transform: translateX(${position}px)`
+      })
+    }
+  }
+
+
+  const nextHandler = () => {
+    if (position <= -(skill.length - 1) * 100) {
+      setNext(true)
+      setPrev(false)
+    } else {
+      setNext(false)
+      position -= 300
+      slider.current.childNodes.forEach((element) => {
+        element.style = `transform: translateX(${position}px)`
+      })
+    }
+  }
+
+  async function buyHandler(e) {
+    e.preventDefault()
+   if(!inventory.skill_id){
+    await fetch(`/skill/${me.inventory_id}/${e.target.id}`);
+    setInventory({id: inventory.id, weapon_id: inventory.weapon_id, armor_id: inventory.armor_id, 
+    skill_id: +e.target.id, flask1_id: inventory.flask1_id,
+    flask2_id: inventory.flask2_id,flask3_id: inventory.flask3_id,flask4_id: inventory.flask4_id,
+  });
+   } else {
+     alert('Инвентарь заполнен')
+   }
+  }
+
+
+  return ( 
+    <div className={styles.Slider}>
+    <div className={styles.track} ref={slider}>
+      {skill.map((el, i) => {
+        return (
+          <div className={styles.item}>{el.price}<img style={{width: '10vw'}} src={el.image} alt="" /><button id={i + 1} onClick={buyHandler}>Купить</button></div>
+          
+        )
+      })}
     </div>
-    <div className="item item-2">
-      <img src="https://yandex-images.clstorage.net/5dKP21Z48/5335c1pxM/_GGlE7WJZBMAavZv7StxdsmDBdiAA8Z-HvUMVZY_cGj1aUcwYryuU5sXMtLFkrWMJC1fbPJlpSjamqNu_weoKc1o8AL4oHh-AF6PU5U7BFKNwmnUnB_iX1aQcRmrf3wxsBxHGSu49zeCt95HJQMAVOiMk9hbSO0Zm9-SX-dLXY340bHvcZG1m5QyG5OV6-1eFQqJsNyyalcKialAAu5xNfhogtknsJ4Cymuad_FfLNDE-IfQS7SxqRsr66fvz4Hg1J2xz2GpTXMIMjeDtQNN6gmiOQRwNhqP5mUBxD6y5Y1UGCbJm3ya8l5Tlk_9Q8xQrOxXLK8MAfkfK2Ojf5t9GFShOffhdQ1vODofFyFPLc75em38DHoyz9I1xXi-8mXhEPiWIWvAImpijwpbcbtwwLiYq8zzIAGNL3cTc2OXlSyQfcX_dcmZi3TW40MVv9XSSf6VoASCrmt6OdGI5orpeeS05nGvDFaq_h86n_G_xND8FJNcvwjtsT_Tq1cbV5VoNCHJ2519sX9gXpPbUZvpSsGi5ViMzkITNhW9GNaW9W1kOCYpi-h-Clrzeks9N7DIHBzDWE9sXa0fz1dHawdJlMR58ccV1e07DHKvb-0j9bYRxq1UPGLSCyLhhXA6Wvl9UIgW8YcMJh7WUyrrRRMULIzwZyTbjKENL3vnU2svhZQsKbH_qYV9rwy2j0-pS5UOOVIVNJj2xmMGiQnkdv4hyVxgxhUzSGZ-2osOl4VbTFC0uOtk7yD9QVsbz_Ort23EWO31W3nx4Q88MnszWadBvp1eYcDIVqa_SrHBbP5inaGsJC6Rbzwy9kpPsvP1y6T4tDxvVEsUDWVP66uPFw8lGCh9GQdVxSW7qFJ7_9kHdVJp1vG8MOqil75FQWSaUlkN9PwaFRsAkiZmi5oTHaN4yIQI1-DrmE2NG6t3XydLseRsHQ0XYe1xkyRm9xNdd3mOEbJpgBxqSteKkYk8uhYI" alt="" />
-    </div>
-    <div className="item item-3">
-      <img src="https://avatars.mds.yandex.net/i?id=5679ae6e270672ebd2a7bb959663c8e0-4335903-images-thumbs&n=13&exp=1" alt="" />
-    </div>
-  </Carousel> );
+    <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
+    <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
+  </div>);
 }
  
 export default Flask;

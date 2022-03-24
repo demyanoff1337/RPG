@@ -1,9 +1,9 @@
-import { devToolsEnhancerDevelopmentOnly } from "@redux-devtools/extension";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const userr = useSelector(store => store.authorization)
   const navigate = useNavigate();
 
   const exit = (e) => {
@@ -13,32 +13,32 @@ const Home = () => {
   const [person, setPerson] = useState({});
   const [invent, setInvent] = useState({});
   const [cardList, setCardList] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [armorList, setArmorList] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [fireList, setFireList] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [flask1List, setFlask1List] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [flask2List, setFlask2List] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [flask3List, setFlask3List] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
   const [flask4List, setFlask4List] = useState([
-    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
-    { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
+    { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'black.png' },
+    { id: 2, order: 2, type: 'inventory', img: 'black.png' },
   ]);
 
   // const [cardList2, setCardList2] = useState([
@@ -69,7 +69,7 @@ const Home = () => {
   //   { id: 1, order: 1, type: 'inventory', text: 'Меч', img: 'https://wiki.melvoridle.com/images/d/db/Mithril_2H_Sword_%28item%29.svg' },
   //   { id: 2, order: 2, type: 'inventory', img: 'https://avatars.mds.yandex.net/i?id=938b438f1fad9f8efaaa104a4ab48c4e-4414771-images-thumbs&n=13&exp=1' },
   // ]);
-  const user = useSelector(store => store.user);
+  const user = useSelector(store => store.authorization);
 
   useEffect(() => {
     async function getPerson() {
@@ -77,7 +77,8 @@ const Home = () => {
         let invent2;
         let pers;
         let wep1, wep2, arm1, arm2, fire1, fire2, med1, med2, med3, med4, med5, med6, med7, med8;
-        let response = await fetch(`/person/1`); // user_id
+
+        let response = await fetch(`/person/${user.id}`); // user_id
         if (response.ok) {
           const persona = await response.json();
           if (persona.failed) {
@@ -103,7 +104,7 @@ const Home = () => {
           const weap = await response.json();
           weap.img = weap.image || 'empty.png';
           wep1 = weap;
-          pers.damage += weap.damage;
+          pers.damage += weap.damage || 0;
           if (weap.failed) {
             alert('Something went wrong')
           } else {
@@ -115,7 +116,7 @@ const Home = () => {
         if (response.ok) {
           const arm = await response.json();
           arm.img = arm.image || 'empty.png';
-          pers.armor += arm.armor;
+          pers.armor += arm.armor || 0;
           arm1 = arm;
           if (arm.failed) {
             alert('Something went wrong')
@@ -128,7 +129,7 @@ const Home = () => {
         if (response.ok) {
           const fire = await response.json();
           fire.img = fire.image || 'empty.png';
-          pers.damage += fire.damage;
+          pers.damage += fire.damage || 0;
           fire1 = fire;
           setPerson(pers);
           if (fire.failed) {
@@ -295,9 +296,26 @@ const Home = () => {
   }
   async function dropHandler(e, card) {
     e.preventDefault()
-      const item = cardList[1];    
+    const item = cardList[1]; 
+    const item2 = cardList[0]; 
+      await fetch(`/weapon-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
+      if (item.damage && item2.damage) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (item.damage && !item2.damage) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (!item.damage && item2.damage) {
+      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+      }
       setCardList([cardList[1], cardList[0]]);
-      const response = await fetch(`/weapon-set/${item.id}/${person.id}`);
+      
   }
 
 
@@ -312,8 +330,26 @@ const Home = () => {
   function dragOverHandler2(e, card) {
     e.preventDefault()
   }
-  function dropHandler2(e, card) { 
+  async function dropHandler2(e, card) { 
     e.preventDefault() 
+    const item = armorList[1]; 
+    const item2 = armorList[0]; 
+      await fetch(`/armor-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
+      if (item.armor && item2.armor) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor + item.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (item.armor && !item2.armor) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor + item.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (!item.armor && item2.armor) {
+      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+      }
       setArmorList([armorList[1], armorList[0]]);    
   }
 
@@ -328,9 +364,28 @@ const Home = () => {
   function dragOverHandler3(e, card) {
     e.preventDefault()
   }
-  function dropHandler3(e, card) { 
+
+  async function dropHandler3(e, card) { 
     e.preventDefault() 
-      setFireList([fireList[1], fireList[0]]);    
+    const item = fireList[1]; 
+    const item2 = fireList[0]; 
+      await fetch(`/fire-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
+      if (item.damage && item2.damage) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (item.damage && !item2.damage) {
+        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+        }
+      if (!item.damage && item2.damage) {
+      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+      weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+      }
+      setFireList([fireList[1], fireList[0]]);   
   }
 
   function dragStartHandler4(e, card) {
@@ -344,8 +399,11 @@ const Home = () => {
   function dragOverHandler4(e, card) {
     e.preventDefault()
   }
-  function dropHandler4(e, card) { 
+  async function dropHandler4(e, card) { 
     e.preventDefault() 
+    const item = flask1List[1]; 
+    const item2 = flask1List[0]; 
+      await fetch(`/flask1-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       setFlask1List([flask1List[1], flask1List[0]]);    
   }
 
@@ -360,8 +418,11 @@ const Home = () => {
   function dragOverHandler5(e, card) {
     e.preventDefault()
   }
-  function dropHandler5(e, card) { 
+  async function dropHandler5(e, card) { 
     e.preventDefault() 
+    const item = flask2List[1]; 
+    const item2 = flask2List[0]; 
+      await fetch(`/flask2-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       setFlask2List([flask2List[1], flask2List[0]]);    
   }
 
@@ -376,8 +437,11 @@ const Home = () => {
   function dragOverHandler6(e, card) {
     e.preventDefault()
   }
-  function dropHandler6(e, card) { 
+  async function dropHandler6(e, card) { 
     e.preventDefault() 
+    const item = flask3List[1]; 
+    const item2 = flask3List[0]; 
+      await fetch(`/flask3-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       setFlask3List([flask3List[1], flask3List[0]]);    
   }
 
@@ -392,8 +456,11 @@ const Home = () => {
   function dragOverHandler7(e, card) {
     e.preventDefault()
   }
-  function dropHandler7(e, card) { 
+  async function dropHandler7(e, card) { 
     e.preventDefault() 
+    const item = flask4List[1]; 
+    const item2 = flask4List[0]; 
+      await fetch(`/flask4-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       setFlask4List([flask4List[1], flask4List[0]]);    
   }
 
@@ -439,7 +506,7 @@ const Home = () => {
         </div> */}
 
         <div id="username-incard">
-          <span id="marge-alittle">EZHII!</span>
+          <span id="marge-alittle">{userr.nickname}</span>
         </div>
 
         <div id="down-card">

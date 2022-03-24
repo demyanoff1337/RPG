@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getUser } from "../../redux/actions/userActions";
 
 const Fight = () => {
+  const user = useSelector(store => store.authorization);
+  const me = useSelector(store => store.user);
+  me.nickname = user.nickname;
+  console.log(me);
 
   const navigate = useNavigate();
-
-  const me = {
-    nickname: 'EZHII!',
-    level: 13,
-    exp: 1337,
-    HP: 777,
-    damage: 137,
-    armor: 15,
-    critical: 15,
-    money: 2345,
-  }
 
   function generateEnemy() {
     return {
@@ -23,13 +18,13 @@ const Fight = () => {
       HP: me.HP + Math.floor(Math.random() * (Math.floor(me.HP * 0.25) * 2) - Math.floor(me.HP * 0.25)),
       damage: me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
       armor: me.armor + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
-      critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.1) * 2) - Math.floor(me.critical * 0.1)),
+      critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.15) * 2) - Math.floor(me.critical * 0.15)),
       money: Math.floor(Math.random() * 26 + 25),
       exp: Math.floor(Math.random() * 51 + 50),
     }
   }
 
-  const enemy = generateEnemy();
+  let enemy = generateEnemy();
 
   const [winner, setWinner] = useState('noone');
   const [gameOn, setGameOn] = useState(true);
@@ -38,7 +33,7 @@ const Fight = () => {
 
   function script() {
 
-    const onLoad = document.querySelector('.on-load');
+    const onLoad = document.querySelector('#on-load');
     const owl = document.querySelector('.owl-fight');
     const welcomeOwl = document.querySelector('.welcome-owl');
     setTimeout(() => {
@@ -379,7 +374,16 @@ const Fight = () => {
 
     endFight.addEventListener('click', (e) => {
       if (e.target.id === 'btnchick') {
-        navigate('/square');
+        const goGoGo = document.querySelectorAll('.go-go-go');
+    const loading = document.querySelector('#on-load2');
+    loading.classList.remove('hide-animations-in');
+    goGoGo[0].classList.add('logo-left-s');
+    goGoGo[1].classList.add('logo-right-s');
+    goGoGo[2].classList.add('loading-left-s');
+    goGoGo[3].classList.add('loading-right-s');
+    setTimeout(() => {
+      navigate('/square');
+    }, 700);
       }
     });
 
@@ -840,6 +844,7 @@ const Fight = () => {
       if (damage > myHealth) {
         myHealth = 0;
         gameIsOn = false;
+        
         setTimeout(() => {
           endResult.classList.add('fight-end-lose');
         endResult.innerHTML = `ПОРАЖЕНИЕ<div class="fight-money fight-end-lose">+0<span class="fm"><img src="coin.png"/></span></div>
@@ -913,6 +918,12 @@ const Fight = () => {
       if (damage > enemyHealth) {
         gameIsOn = false;
         enemyHealth = 0;
+        async function func() {
+          const response = await fetch(`/money-exp/${me.id}/${me.money + enemy.money}/${me.exp + enemy.exp}`);
+          const data = await response.json();
+          dispatchEvent(getUser(data));
+        }
+        func();
         setTimeout(() => {
           endResult.classList.add('fight-end-win');
         endResult.innerHTML = `ПОБЕДА<div class="fight-money fight-end-lose">+${enemy.money}<span class="fm"><img src="coin.png"/></span></div>
@@ -1062,6 +1073,14 @@ const Fight = () => {
   }, []);
 
   const gameOnComponent = (<>
+
+<div id="on-load2" class="on-load hide-animations-in">
+    <img class="go-go-go" src="1.png"/>
+    <img class="go-go-go" src="2.png"/>
+    <div class="go-go-go"></div>
+    <div class="go-go-go"></div>
+    </div>
+
   <div class="owl-things">
   <img class="owl-fight hide-it" src="owl.png"/>
 
@@ -1072,7 +1091,7 @@ const Fight = () => {
   <div class="welcome-owl hide-it">КАКУЮ ТАБЛЕТКУ ВЫБЕРЕШЬ?</div>
   </div>
 
-  <div class="on-load">
+  <div id="on-load" class="on-load">
     <img class="logo-left-f" src="1.png"/>
     <img class="logo-right-f" src="2.png"/>
     <div class="loading-left"></div>

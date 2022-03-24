@@ -1,17 +1,115 @@
-import Carousel from "./Carousel/Carousel";
+import { useEffect, useRef, useState } from "react"
+import { useSelector } from "react-redux";
+import styles from './Carousel/Slider.module.css';
+import cn from 'classnames'
 
 const Weapon = () => {
-  return ( <Carousel>
-    <div className="item item-1">
-      <img src="https://avatars.mds.yandex.net/i?id=b08c26780a42f883b1451f6352cd856c-5236381-images-thumbs&n=13&exp=1" alt="" />
-    </div>
-    <div className="item item-2">
-      <img src="https://avatars.mds.yandex.net/i?id=c5e1bbbc8248dc2ab102743c4644f2e5-5501746-images-thumbs&n=13&exp=1" alt="" />
-    </div>
-    <div className="item item-3">
-      <img src="https://yandex-images.clstorage.net/5dKP21Z48/5335c1pxM/_GGlE7WJZBMAavZv7StxdsmDBdiAA8Z-HvUMVM93ZHG9SVp5Joy7Ds5DJtLw0_WlZCQWOO51rGTSmrdymkrwPa146BqF5R0vKG72Y9kPHVLVryXkoBOWYheUUDjaDnBFoEhHAHskSsZCw95_aS9gTJhMC0TzOIgZw58Pmq_3sdw4aT3zEYmJ7yi-H29Bx_02lQKt7PwKTju-BV08knq1haxALjUz-A72lp_y-0VbdESIsFf0c8zx4csb0_eDu7H8KFHFG42Jpf8IVr_bXW9NgjmG3TQQ5ua_glnJhD4KEZUQjCrFp8ACzpqDEnstT6S4bAjnpHfMeeVbTy8PA4c5xKiNhQe9gY1rnBrf_623GXpFyvV0JLYiAwIZSeh66qF94DCSXZscntoWe67rOTtYWDAk59BHkAk1R0PHO8dbxcw8MRHj8W1xP6jqJ-MdM-EmTTJp0Iy6NvNaYcVwjqbRLST85p0HjK4eln8a-323YMh8DAvsVzSxET-Dx39jB8no1IU5F-XlAafszht7lW-R3sV-hajAllpjan3ZZA4qEXUAGM49o2Duylr3buOdvzDMjGi78HcoTQFP0xuDk1_x9FwtZVOJyT0TUHYHh0UL2dJ10hWw1GJiC4ax1XQ6miGtDPyWKS_Avmoi08oHDVOUsBiIR1BHnP0VT_vXg3sPsczgffXHiQ0dMxQeZz9tn2Gy0UYB2PAK7p_KFQ3ANnLxSbi41kkjGJoW4puSezUbGPAsJBscM_zVtY9jP9MPy_VoMAlpZ7mJ6U_k8rOPyZMVRoHmYQS8MiYXQomxqMY2Gc3kzILBs9wmcpILetM1n5zAiBDrOCcMsckz23cPf1sZNBw9rdMt6emDZFKHYz0bhTp5WmUsSMamHya5dQSe7i1JkPAiEZ8YDpJ6Y6bjBaskdCicq9BzTG0ZA5_j8zs7DSQoFfn7od1lb-Aii79Ffx0GVdqNbHwSbkcG_SUkkgok" alt="" />
-    </div>
-  </Carousel> );
+  const me = useSelector(store => store.user);
+
+  const slider = useRef(null)
+
+
+  const [weapon, setWeapon] = useState([]);
+  const [inventory, setInventory] = useState({});
+
+  const [prev, setPrev] = useState(false)
+  const [next, setNext] = useState(false)
+
+
+  let position = 0;
+
+
+  useEffect(() => {
+    async function getWeapon() {
+      try {
+        let response = await fetch('/weapon');
+        if (response.ok) {
+          let weapons = await response.json();
+          console.log(weapons);
+          if (weapons.failed) {
+            alert('Something went wrong')
+          } else {
+            console.log(weapons)
+            setWeapon(weapons);
+
+          }
+        }
+      } catch (e) {
+        alert(e)
+      }
+    }
+    getWeapon()
+
+  }, [])
+
+
+
+
+
+  const prevHandler = () => {
+    if (position === 0) {
+      setPrev(true)
+    } else {
+      position += 300
+      console.log(slider);
+      slider.current.childNodes.forEach((element) => {
+        element.style = `transform: translateX(${position}px)`
+      })
+    }
+  }
+
+
+  const nextHandler = () => {
+    if (position <= -(weapon.length - 1) * 100) {
+      setNext(true)
+      setPrev(false)
+    } else {
+      setNext(false)
+      position -= 300
+      slider.current.childNodes.forEach((element) => {
+        element.style = `transform: translateX(${position}px)`
+      })
+    }
+  }
+
+
+  async function buyHandler(e) {
+    e.preventDefault()
+    if (!inventory.weapon_id) {
+      await fetch(`/weapon/${me.inventory_id}/${e.target.id}`);
+      setInventory({
+        id: inventory.id, weapon_id: +e.target.id, armor_id: inventory.armor_id,
+        skill_id: inventory.skill_id, flask1_id: inventory.flask1_id,
+        flask2_id: inventory.flask2_id, flask3_id: inventory.flask3_id, flask4_id: inventory.flask4_id,
+      });
+    } else {
+      alert('Инвентарь заполнен')
+    }
+  }
+
+
+
+  return (
+    <>
+      <div className={styles.Slider}>
+        <div className={styles.track} ref={slider}>
+          {weapon.map((el, i) => {
+            return (
+              <div className={styles.item}>{el.price}<img style={{ width: '10vw' }} src={el.image} alt="" /><button id={i + 1} onClick={buyHandler}>Купить</button></div>
+
+            )
+
+          })}
+        </div>
+        <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
+        <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
+      </div>
+
+    </>
+
+
+
+  );
 }
- 
+
 export default Weapon;

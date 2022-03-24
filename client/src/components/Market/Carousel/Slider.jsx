@@ -1,35 +1,36 @@
 import { useEffect, useRef, useState } from 'react';
-import styles from './Carousel/Slider.module.css';
+import styles from './Slider.module.css';
 import cn from 'classnames'
 
 
-const Flask = () => {
+const Slider = () => {
+
+
   const slider = useRef(null)
 
-  const [flasc, setFlasc] = useState([]);
+  const [weapon, setWeapon] = useState([]);
   // const [s, setS] = useState('1');
 
   const [prev, setPrev] = useState(false)
   const [next, setNext] = useState(false)
-  let flascs;
+  let weapons;
 
   let position = 0;
 
-  console.log(flasc);
+  console.log(weapon);
 
-
-  useEffect(async () => {
+  useEffect(() => {
     async function getWeapon() {
       try {
-        const response = await fetch('/flasc');
+        const response = await fetch('/weapon');
         if (response.ok) {
-          flascs = await response.json();
-          console.log(flascs);
-          if (flascs.failed) {
+          weapons = await response.json();
+          console.log(weapons);
+          if (weapons.failed) {
             alert('Something went wrong')
           } else {
-            console.log(flascs)
-            setFlasc(flascs);
+            console.log(weapons)
+            setWeapon(weapons);
 
           }
         }
@@ -37,9 +38,10 @@ const Flask = () => {
         alert(e)
       }
     }
-    await getWeapon()
+   getWeapon()
     // script()
   }, [])
+
 
   const prevHandler = () => {
     if (position === 0){
@@ -55,7 +57,7 @@ const Flask = () => {
 
 
   const nextHandler = () => {
-    if (position <= -(flasc.length - 1) * 100) {
+    if (position <= -(weapon.length - 1) * 100) {
       setNext(true)
       setPrev(false)
     } else {
@@ -66,19 +68,22 @@ const Flask = () => {
       })
     }
   }
-  return (  <div className={styles.Slider}>
-    <div className={styles.track} ref={slider}>
-      {flasc.map((el) => {
-        return (
-          <div className={styles.item}>{el.price}<img style={{width: '10vw'}} src={el.image} alt="" /><button>Купить</button></div>
-          
-        )
-      })}
-    </div>
-    <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
-    <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
-  </div>);
-}
- 
-export default Flask;
 
+
+  return (
+    <div className={styles.Slider}>
+      <div className={styles.track} ref={slider}>
+        {weapon.map((el) => {
+          return (
+            <div className={styles.item}>{el.price},{el.damage},<img src={el.image} alt="" /></div>
+            
+          )
+        })}
+      </div>
+      <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
+      <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
+    </div>
+  );
+}
+
+export default Slider;

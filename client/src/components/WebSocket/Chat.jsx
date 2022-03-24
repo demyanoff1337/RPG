@@ -70,7 +70,9 @@ const Chat = () => {
 
     return (
         <>
-
+          <div class="back-from-chat">x</div>
+          <img class="chat-back" src="chat-back2.png"/>
+          <img class="chat-fire" src="fffire.gif"/>
             <div className="center">
                 <div>
                     {!connected ?   <div className="form">
@@ -95,7 +97,7 @@ const Chat = () => {
                                     <h4 className="user">{mess.username} вошел в чат</h4>
                                 </div>
                                 : <div className="message">
-                                    {mess.username}: {mess.message}
+                                    <span className='username-c'>&nbsp;{mess.username}</span>: {mess.message}
                                 </div>
                             }
 
