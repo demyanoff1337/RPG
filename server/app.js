@@ -139,12 +139,23 @@ app.get('/flask1/:id', async (req, res) => {
     }
     return res.json({ failed: true });
   } catch (e) {
-    console.log('tut')
     return res.send(e);
   }
 });
 
-
+app.get('/weapon-set/:id/:person_id', async (req, res) => {
+  try {
+    const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
+    if (user) {
+      user.weapon_id = Number(req.params.id);
+      user.save();
+      return res.sendStatus(200);
+    }
+    return res.json({ failed: true });
+  } catch (e) {
+    return res.send(e);
+  }
+});
 
 
 
