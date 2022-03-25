@@ -84,18 +84,19 @@ console.log(inventory);
   }
 
   return (
-    <div className={styles.Slider}>
-      <div className={styles.track} ref={slider}>
-        {armor.map((el, i) => {
-          return (
-            <div className={styles.item}>{el.price}<img style={{ width: '10vw' }} src={el.image} alt="" /><button id={i + 1} onClick={buyHandler}>Купить</button></div>
+    // <div className={styles.Slider}>
+    <div className="items-market">
+    {armor.map((el, i) => {
+      return (
+        <div className="item-market"><img class="img-market" src={el.image} alt="" /><button disabled={inventory.armor_id || me.money < armor.price} class={`buy-btn btn${i}`} id={i + 1} onClick={buyHandler}>КУПИТЬ</button></div>
 
-          )
-        })}
-      </div>
-      <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
-      <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
-    </div>
+      )
+
+    })}
+  </div>
+      /* <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
+      <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button> */
+    // </div>
   );
 }
 

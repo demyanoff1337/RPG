@@ -27,7 +27,7 @@ function App() {
     <div className="App-background">
     <div className="RPG">
       <Routes>
-        <Route path='/' element={<Navigate to='/square'/>} />
+        <Route path='/' element={<Navigate to='/login'/>} />
         <Route path='/square' element={<Square/>} />
         <Route path='/home' element={<Home/>} />
         <Route path='/fight' element={<Fight/>} />

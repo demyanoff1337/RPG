@@ -16,8 +16,8 @@ const Fight = () => {
       nickname: 'ihatehedghehogs',
       level: me.level + Math.floor(Math.random() * 3 - 1),
       HP: me.HP + Math.floor(Math.random() * (Math.floor(me.HP * 0.25) * 2) - Math.floor(me.HP * 0.25)),
-      damage: 50 + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
-      armor: 5 + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
+      damage: 50 + Math.floor(Math.random() * (Math.floor(50 * 0.2) * 2) - Math.floor(50 * 0.2)),
+      armor: 5 + Math.floor(Math.random() * (Math.floor(5 * 0.15) * 2) - Math.floor(5 * 0.15)),
       critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.15) * 2) - Math.floor(me.critical * 0.15)),
       money: Math.floor(Math.random() * 26 + 25),
       exp: Math.floor(Math.random() * 21 + 10),
@@ -49,8 +49,8 @@ const Fight = () => {
     const loadingPers1 = document.querySelector('.load-persons-1');
     const loadingPers2 = document.querySelector('.load-persons-2');
 
-    const person1Frames = ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'];
-    const person2Frames = ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'];
+    const person1Frames = user === 'hedgehog' ? ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'] : ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'];
+    const person2Frames =  user === 'hedgehog' ? ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'] : ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'];
 
     let antiShimeringIndex = 0;
     const antiShimering = setInterval(() => {
