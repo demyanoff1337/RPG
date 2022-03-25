@@ -429,21 +429,21 @@ const Home = () => {
     const item2 = cardList[0]; 
       await fetch(`/weapon-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.damage && item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id };
     setPerson(user);
     dispatch(getUser(user));
         }
       if (item.damage && !item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
     dispatch(getUser(user));
         }
       if (!item.damage && item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
@@ -471,21 +471,21 @@ const Home = () => {
     const item2 = armorList[0]; 
       await fetch(`/armor-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.armor && item2.armor) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor + item.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor + item.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
     dispatch(getUser(user));
         }
       if (item.armor && !item2.armor) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor + item.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor + item.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
     dispatch(getUser(user));
         }
       if (!item.armor && item2.armor) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
@@ -512,21 +512,21 @@ const Home = () => {
     const item2 = fireList[0]; 
       await fetch(`/fire-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.damage && item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
     dispatch(getUser(user));
         }
       if (item.damage && !item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);
     dispatch(getUser(user));
         }
       if (!item.damage && item2.damage) {
-        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: me.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
     flask3_id: person.flask3_id, flask4_id: person.flask4_id }
     setPerson(user);

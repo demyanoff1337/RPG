@@ -18,16 +18,21 @@ const Fight = () => {
   const user = useSelector(store => store.authorization);
   const me = useSelector(store => store.user);
   me.nickname = user.nickname;
-  console.log(me);
-  const [playCrit] = useSound(critica);
-  const [playLose] = useSound(lose);
-  const [playWin] = useSound(win);
-  const [playHit] = useSound(handHit);
-  const [playMk] = useSound(mortaKombat);
-  const [playWH] = useSound(weaponHit);
-  const [playMH] = useSound(magicHit);
-  const [playMiss] = useSound(miss);
-
+  // const [playCrit] = useSound(critica);
+  // const [playLose] = useSound(lose);
+  // const [playWin] = useSound(win);
+  // const [playHit] = useSound(handHit);
+  // const [playMk] = useSound(mortaKombat);
+  // const [playWH] = useSound(weaponHit);
+  // const [playMH] = useSound(magicHit);
+  // const [playMiss] = useSound(miss);
+  const audioHandhit = new Audio(handHit);
+  const audiocrit = new Audio(critica)
+  const audioLose = new Audio(lose)
+  const audioWin = new Audio(win);
+  const audioWeaponHit = new Audio(weaponHit);
+  const audioMagic = new Audio(magicHit);
+  const audioMiss = new Audio(miss);
   //  function playcrit() {
   //   playCrit()
   //  }
@@ -931,6 +936,7 @@ const Fight = () => {
         }, 600);
         // playHit()
       } else {
+        
         damage = Math.floor(damage * 2.5);
         enemyCritted.innerText = `-${damage} ϟ`;
         enemyCritted.classList.remove('enemy-critted-start');
@@ -946,8 +952,24 @@ const Fight = () => {
         enemyHealth = 0;
         async function func() {
           const response = await fetch(`/money-exp/${me.id}/${me.money + enemy.money}/${me.exp + enemy.exp}`);
-          const data = await response.json();
-          dispatch(getUser(data));
+          // const data = await response.json();
+          // dispatch(getUser(data));
+          dispatch(getUser(
+            {
+              user_id: me.user_id,
+              level: me.level,
+              exp: me.exp,
+              HP: me.HP,
+              damage: me.damage,
+              armor: me.armor,
+              critical: me.critical,
+              money: me.money + enemy.money,
+              weapon_id: me.weapon_id,
+              armor_id: me.armor_id,
+              skill_id: me.skill_id,
+              inventory_id: me.inventory_id,
+            }
+          ))
         }
         func();
         setTimeout(() => {
@@ -1050,7 +1072,7 @@ const Fight = () => {
     }
   
     topAttack.addEventListener('click', (e) => {
-      playCrit()
+      // playCrit()
       myMove = 0;
       attackTop();
     });
