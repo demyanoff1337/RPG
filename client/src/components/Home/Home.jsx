@@ -1,13 +1,36 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getUser } from "../../redux/actions/userActions";
 
 const Home = () => {
   const userr = useSelector(store => store.authorization)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const exit = (e) => {
-    navigate('/square');
+    const l = document.getElementById('left');
+      const r = document.getElementById('right');
+      l.classList.add('left-anim-out');
+      l.classList.remove('all-ok');
+      l.classList.add('all-no');
+      r.classList.add('right-anim-out');
+      r.classList.remove('all-ok');
+      r.classList.add('all-no');
+
+    setTimeout(() => {
+      const goGoGo = document.querySelectorAll('.go-go-go');
+    const loading = document.querySelector('.on-load');
+    loading.classList.remove('hide-animations-in');
+    goGoGo[0].classList.add('logo-left-s');
+    goGoGo[1].classList.add('logo-right-s');
+    goGoGo[2].classList.add('loading-left-s');
+    goGoGo[3].classList.add('loading-right-s');
+    setTimeout(() => {
+      navigate('/square');
+    }, 700);
+    }, 350);
+    
   }
 
   const [person, setPerson] = useState({});
@@ -71,7 +94,92 @@ const Home = () => {
   // ]);
   const user = useSelector(store => store.authorization);
 
+  function script() {
+    let pers1i = 7;
+    const pers1svg = ['hedgehog1.svg',
+      'hedgehog2.svg',
+      'hedgehog3.svg',
+      'hedgehog4.svg',
+      'hedgehog5.svg',
+      'hedgehog4.svg',
+      'hedgehog3.svg',
+      'hedgehog2.svg',
+      'hedgehog1.svg',
+      'hedgehog2.svg',
+      'hedgehog3.svg',
+      'hedgehog2.svg',
+      'hedgehog1.svg',
+      'hedgehog2.svg',
+      'hedgehog3.svg',
+      'hedgehog2.svg',
+      'hedgehog1.svg',
+      'hedgehog2.svg',
+      'hedgehog3.svg',
+      'hedgehog2.svg',
+    ];
+
+    const pers1 = document.querySelector('#person-img');
+
+    const pers1idle = setInterval(() => {
+      switch (pers1i) {
+        case 0:
+        case 8:
+        case 12:
+        case 16:
+          pers1.src = pers1svg[1];
+          break;
+        case 1:
+        case 9:
+        case 13:
+        case 17:
+          pers1.src = pers1svg[2];
+          break;
+        case 2:
+          pers1.src = pers1svg[3];
+          break;
+        case 3:
+          pers1.src = pers1svg[4];
+          break;
+        case 4:
+          pers1.src = pers1svg[5];
+          break;
+        case 5:
+          pers1.src = pers1svg[6];
+          break;
+        case 6:
+        case 10:
+        case 14:
+        case 18:
+          pers1.src = pers1svg[7];
+          break;
+        case 7:
+        case 11:
+        case 15:
+        case 19:
+          pers1.src = pers1svg[8];
+          break;
+      }
+      pers1i = pers1i + 1 === pers1svg.length ? 0 : pers1i + 1;
+    }, 185);
+  }
+
   useEffect(() => {
+    script();
+    const onLoad = document.querySelector('#on-load');
+    setTimeout(() => {
+      const l = document.getElementById('left');
+      const r = document.getElementById('right');
+      l.classList.add('left-anim');
+      l.classList.remove('all-no');
+      l.classList.add('all-ok');
+
+      r.classList.add('right-anim');
+      r.classList.remove('all-no');
+      r.classList.add('all-ok');
+    }, 400);
+    setTimeout(() => {
+      onLoad.classList.add('hide-animations-in');
+    }, 870);
     async function getPerson() {
       try {
         let invent2;
@@ -300,19 +408,25 @@ const Home = () => {
     const item2 = cardList[0]; 
       await fetch(`/weapon-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.damage && item2.damage) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id };
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (item.damage && !item2.damage) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (!item.damage && item2.damage) {
-      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
       }
       setCardList([cardList[1], cardList[0]]);
       
@@ -336,19 +450,25 @@ const Home = () => {
     const item2 = armorList[0]; 
       await fetch(`/armor-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.armor && item2.armor) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor + item.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor + item.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (item.armor && !item2.armor) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor + item.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor + item.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (!item.armor && item2.armor) {
-      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage, armor: person.armor - item2.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
       }
       setArmorList([armorList[1], armorList[0]]);    
   }
@@ -371,19 +491,25 @@ const Home = () => {
     const item2 = fireList[0]; 
       await fetch(`/fire-set/${item.id || 'empty'}/${item2.id || 'empty'}/${person.id}`); 
       if (item.damage && item2.damage) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage + item.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (item.damage && !item2.damage) {
-        setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage + item.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id })
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
         }
       if (!item.damage && item2.damage) {
-      setPerson({ id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
+        const user = { id: person.id, user_id: person.user_id, level: person.level, exp: person.exp, HP: person.HP, damage: person.damage - item2.damage, armor: person.armor, money: person.money, 
       weapon_id: person.weapon_id, armor_id: person.armor_id, inventory_id: person.inventory_id, flask1_id: person.flask1_id, flask2_id: person.flask2_id, 
-    flask3_id: person.flask3_id, flask4_id: person.flask4_id });
+    flask3_id: person.flask3_id, flask4_id: person.flask4_id }
+    setPerson(user);
+    dispatch(getUser(user));
       }
       setFireList([fireList[1], fireList[0]]);   
   }
@@ -466,13 +592,29 @@ const Home = () => {
 
   
 
-  return ( <div id="home">
-    <div id="left">
+  return ( 
+  <>
+  <img class="home-b" src="home-b.png"/>
+  <div class="on-load hide-animations-in">
+    <img class="go-go-go" src="1.png"/>
+    <img class="go-go-go" src="2.png"/>
+    <div class="go-go-go"></div>
+    <div class="go-go-go"></div>
+    </div>
+
+    <div id="on-load" class="on-load">
+    <img class="logo-left-f delay02" src="1.png"/>
+    <img class="logo-right-f delay02" src="2.png"/>
+    <div class="loading-left delay02"></div>
+    <div class="loading-right delay02"></div>
+    </div>
+
+  <div id="home">
+    <div id="left" class="all-no">
       <div id="charachter">
-        <div id="exp-bar"></div>
-        <div id="exp">Опыт: {person.exp}</div>
-        <div id="lvl-label">уровень</div>
-        <div id="lvl">{person.level}</div>
+        <div id="exp-bar">{person.exp} / 500<span class="exp-h"><img class="el" src="exp.png"/><img class="er" src="exp.png"/></span></div>
+        <div id="exp"></div>
+        <div id="lvl">{person.level} уровень</div>
         <div id="person">
           <img id="person-img" src="hedgehog1.svg" alt="hedghehog"/>
         </div>
@@ -507,11 +649,11 @@ const Home = () => {
 
         <div id="username-incard">
           <span id="marge-alittle">{userr.nickname}</span>
+          <span id="marge-alittle2"></span>
         </div>
 
         <div id="down-card">
-          <div id="money">{person.money} <span><img id="card-money-icon" src="coin.png" alt=""></img></span></div>
-          <div id="to-shop">ТОРГОВЦЫ</div>
+          <div id="money">{person.money} <span><img id="card-money-icon" src="coin.png"/><img id="card-money-icon-r" src="coin.png"/></span></div>
         </div>
 
         <img id="chain1" className="chain" src="chain.png" alt="img"/>
@@ -520,7 +662,7 @@ const Home = () => {
       </div>
     </div>
         
-    <div id="right">
+    <div id="right" class="all-no">
 
 
       <div class="exit-home" onClick={exit}>x</div>
@@ -564,6 +706,7 @@ const Home = () => {
       <div id="contr">12%</div>  */}
 
       <div id="items">
+        <div class="help"></div>
           <div 
            onDragStart={(e) => dragStartHandler(e, cardList[0])} //срабатывает в тот момент когда мы взяли карточку
                        onDragLeave={(e) => dragEndHandler(e)} // срабатывает если мы вышли за пределы другой карттчки
@@ -653,11 +796,11 @@ const Home = () => {
       <div id="hint-3" className="hint-2">УМЕНИЕ</div>      
       <div id="ramka-3" className="ramka"></div>
 
-      <div id="hint-4" className="hint-2">ЗЕЛЬЯ</div>      
+      <div id="hint-4" className="hint-2">МЁД</div>      
       <div id="ramka-4" className="ramka-big"></div>
 
       <div id="inventory">
-
+      <div class="help"></div>
       
       <div
       onDragStart={(e) => dragStartHandler(e, cardList[1])} //срабатывает в тот момент когда мы взяли карточку
@@ -748,13 +891,13 @@ const Home = () => {
       <div id="hint-13" className="hint">УМЕНИЕ</div>      
       <div id="ramka-13" className="ramka-1"></div>
 
-      <div id="hint-14" className="hint">ЗЕЛЬЯ</div>      
+      <div id="hint-14" className="hint">МЁД</div>      
       <div id="ramka-14" className="ramka-big-1"></div>
 
       <img id="chain3" className="chain" src="chain.png" alt="img"/>
       <img id="chain4" className="chain" src="chain.png" alt="img"/>
     </div>
-  </div> );
+  </div></> );
 }
  
 export default Home;
