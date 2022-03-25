@@ -16,11 +16,11 @@ const Fight = () => {
       nickname: 'ihatehedghehogs',
       level: me.level + Math.floor(Math.random() * 3 - 1),
       HP: me.HP + Math.floor(Math.random() * (Math.floor(me.HP * 0.25) * 2) - Math.floor(me.HP * 0.25)),
-      damage: me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
-      armor: me.armor + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
+      damage: 50 + Math.floor(Math.random() * (Math.floor(me.damage * 0.2) * 2) - Math.floor(me.damage * 0.2)),
+      armor: 5 + Math.floor(Math.random() * (Math.floor(me.armor * 0.15) * 2) - Math.floor(me.armor * 0.15)),
       critical: me.critical + Math.floor(Math.random() * (Math.floor(me.critical * 0.15) * 2) - Math.floor(me.critical * 0.15)),
       money: Math.floor(Math.random() * 26 + 25),
-      exp: Math.floor(Math.random() * 51 + 50),
+      exp: Math.floor(Math.random() * 21 + 10),
     }
   }
 

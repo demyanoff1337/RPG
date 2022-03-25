@@ -1,11 +1,18 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom'
-import Navbar from '../Navbar/Navbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import { logoutThunk } from '../../redux/thunk/authorizationThunk';
 
 const Main = () => {
   const user = useSelector(store => store.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logoutHandler = async (e) => {
+    e.preventDefault();
+    dispatch(logoutThunk());
+    navigate('/login');
+  };
 
   const goFight = (e) => {
     const goGoGo = document.querySelectorAll('.go-go-go');
@@ -236,6 +243,20 @@ const Main = () => {
   return (
     <>
     {/* <Navbar/> */}
+    <div onClick={logoutHandler} class="exit-user">ВЫХОД</div>
+
+    <img class="a-h aa" src="arrow-home.png"/>
+    <img class="a-f aa" src="arrow-fight.png"/>
+    <img class="a-m aa" src="arrow-market.png"/>
+
+    <img class="a-h1 aaa" src="hata.png"/>
+    <img class="a-f1 aaa" src="boi.png"/>
+    <img class="a-m1 aaa" src="rynok.png"/>
+
+    <img class="bee-s" src="bee1.png"/>
+    <img class="bee-s2" src="bee1.png"/>
+    <img class="bee-s3" src="bee1.png"/>
+    
     <div class="on-load hide-animations-in">
     <img class="go-go-go" src="1.png"/>
     <img class="go-go-go" src="2.png"/>

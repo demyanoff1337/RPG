@@ -149,12 +149,13 @@ app.get('/flask1/:id', async (req, res) => {
 
 app.get('/weapon-set/:id/:id2/:person_id', async (req, res) => {
   try {
+    console.log(req.params)
     const user = await Person.findOne({ where: { id: Number(req.params.person_id) } });
     const inv = await Inventory.findOne({ where: { id: user.inventory_id } });
     if (user) {
-      user.weapon = req.params.id === 'empty' ? null : Number(req.params.id);
+      user.weapon_id = req.params.id === 'empty' ? null : Number(req.params.id);
       user.save();
-      inv.weapon = req.params.id2 === 'empty' ? null : Number(req.params.id2);
+      inv.weapon_id = req.params.id2 === 'empty' ? null : Number(req.params.id2);
       inv.save();
       return res.sendStatus(200);
     }
