@@ -1,19 +1,44 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../redux/actions/userActions";
+import React from 'react';
+import critica from '../../audio/criticalAtack.mp3';
+import lose from '../../audio/hahaLose.mp3';
+import win from '../../audio/woohooWin.mp3';
+import mortaKombat from '../../audio/ortal_combat_toasty.mp3';
+import handHit from '../../audio/handHit.mp3';
+import weaponHit from '../../audio/weaponHit.mp3';
+import magicHit from '../../audio/magicHit.mp3';
+import miss from '../../audio/hahaMiss.mp3';
+import useSound from "use-sound";
+
 
 const Fight = () => {
   const user = useSelector(store => store.authorization);
   const me = useSelector(store => store.user);
   me.nickname = user.nickname;
   console.log(me);
+  const [playCrit] = useSound(critica);
+  const [playLose] = useSound(lose);
+  const [playWin] = useSound(win);
+  const [playHit] = useSound(handHit);
+  const [playMk] = useSound(mortaKombat);
+  const [playWH] = useSound(weaponHit);
+  const [playMH] = useSound(magicHit);
+  const [playMiss] = useSound(miss);
+
+  //  function playcrit() {
+  //   playCrit()
+  //  }
+
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function generateEnemy() {
     return {
-      nickname: 'ihatehedghehogs',
+      nickname: user.role === 'Hedgehog' ? 'Бобр' : 'Еж',
       level: me.level + Math.floor(Math.random() * 3 - 1),
       HP: me.HP + Math.floor(Math.random() * (Math.floor(me.HP * 0.25) * 2) - Math.floor(me.HP * 0.25)),
       damage: 50 + Math.floor(Math.random() * (Math.floor(50 * 0.2) * 2) - Math.floor(50 * 0.2)),
@@ -49,8 +74,8 @@ const Fight = () => {
     const loadingPers1 = document.querySelector('.load-persons-1');
     const loadingPers2 = document.querySelector('.load-persons-2');
 
-    const person1Frames = user === 'hedgehog' ? ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'] : ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'];
-    const person2Frames =  user === 'hedgehog' ? ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'] : ['p1-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'];
+    const person1Frames = ['p3-1', 'p1-2', 'p1-3', 'p1-4', 'p1-5', 'p1-attack-prev', 'p1-mid-1', 'p1-mid-2', 'p1-bot-1', 'p1-bot-2', 'p1-hitted', 'p1-lost'];
+    const person2Frames = ['p2-1', 'p2-2', 'p2-3', 'p2-4', 'p2-5', 'p2-attack-prev', 'p2-mid-1', 'p2-mid-2', 'p2-bot-1', 'p2-bot-2', 'p2-hitted', 'p2-lost'];
 
     let antiShimeringIndex = 0;
     const antiShimering = setInterval(() => {
@@ -892,10 +917,10 @@ const Fight = () => {
     }
   
     function pers2Hitted(bang) {
+      
       let damage = me.damage + Math.floor(Math.random() * (Math.floor(me.damage * 0.05) * 2) - Math.floor(me.damage * 0.05));
       damage = Math.floor(damage * ((100 - me.armor) / 100));
       const crit = Math.floor(Math.random() * 100) < me.critical;
-
       if (!crit) {
         enemyHitted.innerText = `-${damage}`;
         enemyHitted.classList.remove('enemy-hitted-start');
@@ -904,6 +929,7 @@ const Fight = () => {
           enemyHitted.classList.remove('enemy-hitted-charge');
           enemyHitted.classList.add('enemy-hitted-start');
         }, 600);
+        // playHit()
       } else {
         damage = Math.floor(damage * 2.5);
         enemyCritted.innerText = `-${damage} ϟ`;
@@ -921,7 +947,7 @@ const Fight = () => {
         async function func() {
           const response = await fetch(`/money-exp/${me.id}/${me.money + enemy.money}/${me.exp + enemy.exp}`);
           const data = await response.json();
-          dispatchEvent(getUser(data));
+          dispatch(getUser(data));
         }
         func();
         setTimeout(() => {
@@ -1024,6 +1050,7 @@ const Fight = () => {
     }
   
     topAttack.addEventListener('click', (e) => {
+      playCrit()
       myMove = 0;
       attackTop();
     });

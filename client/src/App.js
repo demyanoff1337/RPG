@@ -13,6 +13,7 @@ import Chat from './components/WebSocket/Chat';
 import Login from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import Profile from './components/Profile/Profile'
+import Audio from './components/Audio'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/audio' element={<Audio/>}/>
       </Routes>
     </div>
     </div>

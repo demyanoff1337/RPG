@@ -5,6 +5,7 @@ import { getUser } from "../../redux/actions/userActions";
 
 const Home = () => {
   const userr = useSelector(store => store.authorization)
+  const me = useSelector(store => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -673,7 +674,7 @@ const Home = () => {
         </div>
 
         <div id="down-card">
-          <div id="money">{person.money} <span><img id="card-money-icon" src="coin.png"/><img id="card-money-icon-r" src="coin.png"/></span></div>
+          <div id="money">{me.money} <span><img id="card-money-icon" src="coin.png"/><img id="card-money-icon-r" src="coin.png"/></span></div>
         </div>
 
         <img id="chain1" className="chain" src="chain.png" alt="img"/>

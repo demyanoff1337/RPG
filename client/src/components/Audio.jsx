@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import critica from '../audio/criticalAtack.mp3';
 import lose from '../audio/hahaLose.mp3';
 import win from '../audio/woohooWin.mp3';
@@ -19,7 +19,9 @@ const Audio = () => {
   const [playMH] = useSound(magicHit);
   const [playMiss] = useSound(miss);
 
-
+  useEffect(() => {
+    playCrit();
+  }, [])
   return (
     <div>
       <button onClick={playCrit}>critica</button>
