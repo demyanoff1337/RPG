@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import styles from './Carousel/Slider.module.css';
-import cn from 'classnames'
+
 
 
 const Flask = () => {
@@ -66,18 +65,16 @@ const Flask = () => {
       })
     }
   }
-  return (  <div className={styles.Slider}>
-    <div className={styles.track} ref={slider}>
-      {flasc.map((el) => {
-        return (
-          <div className={styles.item}>{el.price}<img style={{width: '10vw'}} src={el.image} alt="" /><button>Купить</button></div>
-          
-        )
-      })}
-    </div>
-    <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
-    <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
-  </div>);
+  return (
+    <div className="items-market">
+    {flasc.map((el, i) => {
+      return (
+        <div className="item-market"><img class="img-market" src={el.image} alt="" /><button disabled={true} class={`buy-btn btn${i}`} id={i + 1}>КУПИТЬ</button></div>
+
+      )
+
+    })}
+  </div>)
 }
  
 export default Flask;

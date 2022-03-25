@@ -85,18 +85,19 @@ const Flask = () => {
 
 
   return ( 
-    <div className={styles.Slider}>
-    <div className={styles.track} ref={slider}>
-      {skill.map((el, i) => {
-        return (
-          <div className={styles.item}>{el.price}<img style={{width: '10vw'}} src={el.image} alt="" /><button id={i + 1} onClick={buyHandler}>Купить</button></div>
-          
-        )
-      })}
-    </div>
-    <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
-    <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button>
-  </div>);
+    <div className="items-market">
+    {skill.map((el, i) => {
+      return (
+        <div className="item-market"><img class="img-market" src={el.image} alt="" /><button disabled={inventory.skill_id || me.money < skill.price} class={`buy-btn btn${i}`} id={i + 1} onClick={buyHandler}>КУПИТЬ</button></div>
+
+      )
+
+    })}
+  </div>
+      /* <button className={cn(styles.button, styles.button_prev)} onClick={prevHandler}>{`<`}</button>
+      <button className={cn(styles.button, styles.button_next)} onClick={nextHandler}>{`>`}</button> */
+    // </div>
+  );
 }
  
 export default Flask;

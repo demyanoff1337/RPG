@@ -96,7 +96,7 @@ const Home = () => {
 
   function script() {
     let pers1i = 7;
-    const pers1svg = ['hedgehog1.svg',
+    let pers1svg = userr.role === 'Hedgehog' ? ['hedgehog1.svg',
       'hedgehog2.svg',
       'hedgehog3.svg',
       'hedgehog4.svg',
@@ -116,7 +116,27 @@ const Home = () => {
       'hedgehog2.svg',
       'hedgehog3.svg',
       'hedgehog2.svg',
-    ];
+    ] : ['beaver1.svg',
+    'beaver2.svg',
+    'beaver3.svg',
+    'beaver4.svg',
+    'beaver5.svg',
+    'beaver4.svg',
+    'beaver3.svg',
+    'beaver2.svg',
+    'beaver1.svg',
+    'beaver2.svg',
+    'beaver3.svg',
+    'beaver2.svg',
+    'beaver1.svg',
+    'beaver2.svg',
+    'beaver3.svg',
+    'beaver2.svg',
+    'beaver1.svg',
+    'beaver2.svg',
+    'beaver3.svg',
+    'beaver2.svg',
+  ];
 
     const pers1 = document.querySelector('#person-img');
 

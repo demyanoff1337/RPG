@@ -5,6 +5,7 @@ import { logoutThunk } from '../../redux/thunk/authorizationThunk';
 
 const Main = () => {
   const user = useSelector(store => store.user);
+  const userr = useSelector(store => store.authorization);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -68,7 +69,7 @@ const Main = () => {
 
   function script() {
     let pers1i = 7;
-    const pers1svg = ['hedgehog1.svg',
+    const pers1svg = userr.role ==='Hedgehog' ? ['hedgehog1.svg',
       'hedgehog2.svg',
       'hedgehog3.svg',
       'hedgehog4.svg',
@@ -88,7 +89,28 @@ const Main = () => {
       'hedgehog2.svg',
       'hedgehog3.svg',
       'hedgehog2.svg',
-    ];
+    ] : 
+    ['beaver1.svg',
+      'beaver2.svg',
+      'beaver3.svg',
+      'beaver4.svg',
+      'beaver5.svg',
+      'beaver4.svg',
+      'beaver3.svg',
+      'beaver2.svg',
+      'beaver1.svg',
+      'beaver2.svg',
+      'beaver3.svg',
+      'beaver2.svg',
+      'beaver1.svg',
+      'beaver2.svg',
+      'beaver3.svg',
+      'beaver2.svg',
+      'beaver1.svg',
+      'beaver2.svg',
+      'beaver3.svg',
+      'beaver2.svg',
+    ] ;
 
     const pers1 = document.querySelector('.my-img');
 
@@ -136,7 +158,7 @@ const Main = () => {
 
 
     let pers2i = 0;
-    const pers2svg = ['beaver1.svg',
+    const pers2svg = userr.role ==='Hedgehog' ? ['beaver1.svg',
       'beaver2.svg',
       'beaver3.svg',
       'beaver4.svg',
@@ -156,7 +178,27 @@ const Main = () => {
       'beaver2.svg',
       'beaver3.svg',
       'beaver2.svg',
-    ];
+    ] : ['hedgehog1.svg',
+    'hedgehog2.svg',
+    'hedgehog3.svg',
+    'hedgehog4.svg',
+    'hedgehog5.svg',
+    'hedgehog4.svg',
+    'hedgehog3.svg',
+    'hedgehog2.svg',
+    'hedgehog1.svg',
+    'hedgehog2.svg',
+    'hedgehog3.svg',
+    'hedgehog2.svg',
+    'hedgehog1.svg',
+    'hedgehog2.svg',
+    'hedgehog3.svg',
+    'hedgehog2.svg',
+    'hedgehog1.svg',
+    'hedgehog2.svg',
+    'hedgehog3.svg',
+    'hedgehog2.svg',
+  ];;
 
     const pers2 = document.querySelector('.enemy-img');
 
@@ -256,7 +298,7 @@ const Main = () => {
     <img class="bee-s" src="bee1.png"/>
     <img class="bee-s2" src="bee1.png"/>
     <img class="bee-s3" src="bee1.png"/>
-    
+
     <div class="on-load hide-animations-in">
     <img class="go-go-go" src="1.png"/>
     <img class="go-go-go" src="2.png"/>

@@ -3,7 +3,8 @@ import { getUser } from '../actions/userActions';
 
 export const loginThunk = (mail, password, navigate) => {
   return async (dispatch) => {
-    const responce = await fetch('/user/login', {
+    let user;
+    let responce = await fetch('/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -16,13 +17,16 @@ export const loginThunk = (mail, password, navigate) => {
       alert('Неверный почтовый адрес');
     } else if (responce.status === 200) {
       const { role, id, nickname } = await responce.json();
-      const user = {};
+      user = {};
       user.nickname = nickname;
       user.id = id;
       user.role = role.role_name;
       dispatch(login(user));
       navigate('/square');
     }
+    responce = await fetch(`/person/${user.id}`);
+    const pers = await responce.json();
+    dispatch(getUser(pers));
   };
 };
 

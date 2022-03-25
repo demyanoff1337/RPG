@@ -37,7 +37,7 @@ body {
   width: 60vw;
   height: 45vw;
   /* background-image: linear-gradient(180deg, #7be1e3 0%, #5947cf 74%); */
-  background-color: rgb(248, 216, 106, 0.9 );
+  background-color: rgb(248, 216, 106, 0.9);
   border-radius: 2vw;
   outline: solid 0.6vw rgb(54 53 49);
   /* 0.5s */
@@ -62,11 +62,11 @@ body {
   width: 30vw;
   height: 45vw;
   /* background-image: linear-gradient(180deg, #7be1e3 0%, #5947cf 74%); */
-  background-color: rgb(248, 216, 106, 0.9 );
+  background-color: rgb(248, 216, 106, 0.9);
   border-radius: 2vw;
   outline: solid 0.6vw rgb(54 53 49);
   z-index: 1;
-  
+
   /* 0.4s */
   /* margin-top: 10vw; */
 }
@@ -156,16 +156,16 @@ body {
 
 .el {
   position: absolute;
-    width: 2.5vw;
-    top: 0.18vw;
-    left: 0vw;
+  width: 2.5vw;
+  top: 0.18vw;
+  left: 0vw;
 }
 
 .er {
   position: absolute;
-    width: 2.5vw;
-    top: 0.18vw;
-    right: 0vw;
+  width: 2.5vw;
+  top: 0.18vw;
+  right: 0vw;
 }
 
 #exp-bar {
@@ -228,8 +228,8 @@ body {
   /* background-color: #f5dd9b; */
   background-image: url(../public/back.jpg);
   background-size: 118vw;
-    background-position-x: -5vw;
-    background-position-y: 34vw;
+  background-position-x: -5vw;
+  background-position-y: 34vw;
   width: 27.6vw;
   height: 31vw;
   overflow: hidden;
@@ -281,7 +281,7 @@ body {
   z-index: 10;
   font-size: 2.5vw;
   text-shadow: 0.2vw 0.2vw 0.2vw rgb(0 0 0);
-  background-color: rgb(0,0,0,0.5);
+  background-color: rgb(0, 0, 0, 0.5);
   width: 28vw;
   border-top-left-radius: 1vw;
   border-top-right-radius: 1vw;
@@ -299,7 +299,7 @@ body {
   z-index: 10;
   font-size: 2.5vw;
   text-shadow: 0.2vw 0.2vw 0.2vw rgb(0 0 0);
-  background-color: rgb(0,0,0,0.5);
+  background-color: rgb(0, 0, 0, 0.5);
   width: 28vw;
   border-top-left-radius: 1vw;
   border-top-right-radius: 1vw;
@@ -332,18 +332,18 @@ body {
 
 #card-money-icon {
   position: absolute;
-    left: 0vw;
-    top: 0.3vw;
-    width: 2.8vw;
+  left: 0vw;
+  top: 0.3vw;
+  width: 2.8vw;
   -webkit-filter: brightness(1.2);
   filter: brightness(1.2);
 }
 
 #card-money-icon-r {
   position: absolute;
-    right: 0vw;
-    top: 0.3vw;
-    width: 2.8vw;
+  right: 0vw;
+  top: 0.3vw;
+  width: 2.8vw;
   -webkit-filter: brightness(1.2);
   filter: brightness(1.2);
 }
@@ -2481,7 +2481,7 @@ body {
   top: 1vw;
   left: 64vw;
   width: 30vw;
-  border-radius: 5vw;
+  border-radius: 3vw;
   border: 0.5vw solid rgb(23 25 27);
   height: 10vw;
   background-color: #2c3134;
@@ -2501,7 +2501,8 @@ body {
 }
 
 .form input:focus {
-  background-color: rgb(237, 243, 248);;
+  background-color: rgb(237, 243, 248);
+  ;
 }
 
 .form button {
@@ -2609,6 +2610,30 @@ body {
   color: rgb(75, 233, 233);
   background-color: #41535a;
   outline: solid 0.3vw rgb(75, 233, 233);
+  cursor: pointer;
+}
+
+.back-from-market {
+  position: absolute;
+  width: 6vw;
+  top: 2vw;
+  right: 2vw;
+  height: 6vw;
+  background-color: #c84d2e;
+  z-index: 4;
+  border-radius: 3vw;
+  outline: solid 0.3vw rgb(45, 42, 41);
+  font-size: 4vw;
+  line-height: 5.2vw;
+  text-align: center;
+  color: rgb(45, 42, 41);
+  transition: color 0.3s, outline 0.3s, background-color 0.3s;
+}
+
+.back-from-market:hover {
+  color: rgb(74, 67, 64);
+  background-color: #f6835d;
+  outline: solid 0.3vw rgb(74, 67, 64);
   cursor: pointer;
 }
 
@@ -2855,7 +2880,9 @@ body {
 .stall {
   position: absolute;
   width: 30vw;
-  top: 24.6vw;
+  top: 20vw;
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
 }
 
 .st1 {
@@ -2872,6 +2899,83 @@ body {
 
 .st4 {
   left: 71vw;
+}
+
+.sho {
+  position: absolute;
+  font-size: 3vw;
+  height: 5vw;
+  line-height: 5vw;
+  top: 43vw;
+  width: 18vw;
+  text-align: center;
+  background-color: aquamarinez;
+  outline: solid 0.4vw;
+  border-radius: 2vw;
+}
+
+.www {
+  left: 4vw;
+  background-color: #f28059;
+  /* width: 18vw; */
+  color: #832828;
+  outline: solid 0.4vw
+}
+
+.www:hover {
+  left: 4vw;
+  background-color: #ffa88b;
+  /* width: 18vw; */
+  color: #b23939;
+  outline: solid 0.4vw;
+  cursor: pointer;
+}
+
+.arr {
+  left: 29vw;
+  background-color: #8dbfcb;
+  color: #364f64;
+}
+
+.arr:hover {
+  left: 29vw;
+  background-color: #9cdeef;
+  color: #3f6a8d;
+  cursor: pointer;
+}
+
+.ski {
+  left: 53vw;
+  background-color: bisque;
+  color: #646355;
+}
+
+.ski:hover {
+  left: 53vw;
+  background-color: rgb(251, 244, 234);
+  color: #868579;
+  cursor: pointer;
+}
+
+.fla {
+  left: 78vw;
+  background-color: #ffff27;
+  color: #88581e;
+}
+
+.fla:hover {
+  left: 78vw;
+  background-color: #ffff9e;
+  color: #98682d;
+  cursor: pointer;
+}
+
+.back-m {
+  position: absolute;
+  height: 50vw;
+  left: 0vw;
+  filter: brightness(0.4);
+  top: -5vw;
 }
 
 .xd {
@@ -2984,9 +3088,11 @@ input:focus {
   from {
     top: 20vw;
   }
+
   50% {
     top: 21vw;
   }
+
   100% {
     top: 20vw;
   }
@@ -3005,9 +3111,11 @@ input:focus {
   from {
     top: 18vw;
   }
+
   50% {
     top: 17vw;
   }
+
   100% {
     top: 18vw;
   }
@@ -3026,9 +3134,11 @@ input:focus {
   from {
     top: 14vw;
   }
+
   50% {
     top: 14.6vw;
   }
+
   100% {
     top: 14vw;
   }
@@ -3076,9 +3186,11 @@ input:focus {
   from {
     top: 14vw;
   }
+
   50% {
     top: 15vw;
   }
+
   to {
     top: 14vw;
   }
@@ -3094,9 +3206,11 @@ input:focus {
   from {
     top: 15vw;
   }
+
   50% {
     top: 14vw;
   }
+
   to {
     top: 15vw;
   }
@@ -3112,9 +3226,11 @@ input:focus {
   from {
     top: 9vw;
   }
+
   50% {
     top: 10vw;
   }
+
   to {
     top: 9vw;
   }
@@ -3137,9 +3253,11 @@ input:focus {
   from {
     top: 9vw;
   }
+
   50% {
     top: 10vw;
   }
+
   to {
     top: 9vw;
   }
@@ -3155,9 +3273,11 @@ input:focus {
   from {
     top: 10vw;
   }
+
   50% {
     top: 9vw;
   }
+
   to {
     top: 10vw;
   }
@@ -3173,9 +3293,11 @@ input:focus {
   from {
     top: 4vw;
   }
+
   50% {
     top: 5vw;
   }
+
   to {
     top: 4vw;
   }
@@ -3183,4 +3305,122 @@ input:focus {
 
 .home-b {
   position: absolute;
+  height: 50vw;
 }
+
+.bees1 {
+  position: absolute;
+  left: -55vw;
+}
+
+.bees2 {
+  position: absolute;
+  left: -48vw;
+  top: 12vw;
+}
+
+.bees3 {
+  position: absolute;
+    left: -36vw;
+    top: 3vw;
+}
+
+.bees4 {
+  position: absolute;
+  left: -25vw;
+  top: 13vw;
+}
+
+.bees5 {
+  position: absolute;
+    left: -16vw;
+    top: 4vw;
+}
+
+.bees6 {
+  position: absolute;
+  left: -1vw;
+  top: 13vw;
+}
+
+.bees7 {
+  position: absolute;
+    left: 11vw;
+    top: 4vw;
+}
+
+.bees8 {
+  position: absolute;
+    left: 18vw;
+    top: 13vw;
+}
+
+.bees9 {
+  position: absolute;
+    left: 26vw;
+    top: 4vw;
+}
+
+.items-market {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  left: 0vw;
+  /* background-color: #0d0e0e; */
+  gap: 1vw;
+}
+  
+  .item-market {
+    width: 15vw;
+    height: 15vw;
+    /* background-color: #364f64; */
+  }
+
+  .buy-btn {
+    position: absolute;
+    top: 12vw;
+    width: 6vw;
+    height: 2.5vw;
+    line-height: 2.1vw;
+    border-radius: 1vw; 
+    font-size: 1.1vw;
+  }
+
+  .buy-btn:disabled {
+    opacity: 0.8;
+  }
+
+  .buy-btn:hover {
+    background-color: #f5f981;
+    cursor: pointer;
+  }
+
+  .btn0 {
+    left: 15vw;
+  }
+
+  .btn1 {
+    left: 30.5vw;
+  }
+
+  .btn2 {
+    left: 47vw;
+  }
+
+  .btn3 {
+    left: 62.5vw;
+  }
+
+  .btn4 {
+    left: 78vw;
+  }
+
+  .img-market {
+    position: absolute;
+    width: 15vw;
+    background-color: #4c4747;
+    border-radius: 3vw;
+    outline: solid 0.5vw;
+  }
