@@ -53,6 +53,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.user_id) {
+    res.json({ id: req.session.user_id, role: req.session.user_role, nickname: req.session.user_nickname})
+  } else {
+    res.sendStatus(404);
+  }
+})
+
 router.post('/signup', /*upload.single('file'),*/ async (req, res) => {
   console.log(req.body)
   try {

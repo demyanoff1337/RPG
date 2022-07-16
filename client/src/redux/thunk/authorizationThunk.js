@@ -22,13 +22,30 @@ export const loginThunk = (mail, password, navigate) => {
       user.id = id;
       user.role = role.role_name;
       dispatch(login(user));
+      // window.localStorage.setItem('user', JSON.stringify(user));
       navigate('/square');
     }
     responce = await fetch(`/person/${user.id}`);
     const pers = await responce.json();
     dispatch(getUser(pers));
+    // window.localStorage.setItem('pers', JSON.stringify(pers));
   };
 };
+
+export const checkLogin = () => {
+  return async (dispatch) => {
+    let user;
+    let responce = await fetch('/user/login');
+    user = await responce.json();
+    if (responce.status !== 404) {
+      dispatch(login(user));
+      responce = await fetch(`/person/${user.id}`);
+      const pers = await responce.json();
+      dispatch(getUser(pers));
+      // window.localStorage.setItem('pers', JSON.stringify(pers));
+    }
+  };
+}
 
 export const signupThunk = (formData, navigate) => {
   return async (dispatch) => {

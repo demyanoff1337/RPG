@@ -15,28 +15,10 @@ import useSound from "use-sound";
 
 
 const Fight = () => {
-  const user = useSelector(store => store.authorization);
-  const me = useSelector(store => store.user);
-  me.nickname = user.nickname;
-  // const [playCrit] = useSound(critica);
-  // const [playLose] = useSound(lose);
-  // const [playWin] = useSound(win);
-  // const [playHit] = useSound(handHit);
-  // const [playMk] = useSound(mortaKombat);
-  // const [playWH] = useSound(weaponHit);
-  // const [playMH] = useSound(magicHit);
-  // const [playMiss] = useSound(miss);
-  const audioHandhit = new Audio(handHit);
-  const audiocrit = new Audio(critica)
-  const audioLose = new Audio(lose)
-  const audioWin = new Audio(win);
-  const audioWeaponHit = new Audio(weaponHit);
-  const audioMagic = new Audio(magicHit);
-  const audioMiss = new Audio(miss);
-  //  function playcrit() {
-  //   playCrit()
-  //  }
-
+  const [user, setUser] = useState(0);
+  const [me, setMe] = useState(0);
+  // const user = useSelector(store => store.authorization);
+  // const me = useSelector(store => store.user);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,12 +36,12 @@ const Fight = () => {
     }
   }
 
-  let enemy = generateEnemy();
+  let enemy;
 
   const [winner, setWinner] = useState('noone');
   const [gameOn, setGameOn] = useState(true);
-  let myHealth = me.HP;
-  let enemyHealth = enemy.HP;
+  let myHealth;
+  let enemyHealth;
 
   function script() {
 
@@ -1118,8 +1100,18 @@ const Fight = () => {
   }
 
   useEffect(() => {
-    script();
+    setUser(JSON.parse(window.localStorage.getItem('user')));
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      me.nickname = user.nickname;
+      enemy = generateEnemy();
+      myHealth = me.HP;
+      enemyHealth = enemy.HP;
+      script();
+    }
+  }, [user])
 
   const gameOnComponent = (<>
 
@@ -1162,7 +1154,7 @@ const Fight = () => {
       <div class="my-nickname">{me.nickname}</div>
 
       <div class="enemy-health-bar" ></div>
-      <div class="enemy-nickname">{enemy.nickname}</div>
+      <div class="enemy-nickname">{enemy?.nickname}</div>
 
       <div class="my-hitted my-hitted-start"></div>
       <div class="my-critted my-critted-start"></div>
