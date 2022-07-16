@@ -1,7 +1,7 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 require('dotenv').config();
@@ -34,13 +34,6 @@ function broadcastMessage(message) {
   })
 }
 
-var app = express();
-const userRouter = require('./routes/userRouter');
-const radeRouter = require('./routes/radeRouter');
-const weaponRouter = require('./routes/weaponRouter');
-const flascRouter = require('./routes/flaskRouter');
-const skillRouter = require('./routes/skillRouter');
-const armorRouter = require('./routes/armorRouter');
 
 app.use(logger('dev'));
 app.use(cors());
@@ -67,7 +60,7 @@ app.post('/login', async (req, res) => {
         return res.json({ exists: true, correct: true, user });
       }
       return res.json({ exists: true, correct: false });
-    } else { 
+    } else {
       return res.json({ exists: false });
     }
   } catch (e) {
@@ -86,6 +79,7 @@ app.get('/person/:id', async (req, res) => {
     return res.send(e);
   }
 });
+app.use('/user', userRouter);
 
 app.get('/inv/:id', async (req, res) => {
   try {
