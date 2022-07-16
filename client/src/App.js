@@ -3,21 +3,18 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main';
 import Square from './components/Square/Square';
 import Home from './components/Home/Home';
-import SignUp from "./components/SignUp/SignUp";
-import LogIn from "./components/LogIn/LogIn";
 
 function App() {
+
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.authorization);
+
+  useEffect(() => {
+    dispatch(firstConnection(user));
+  }, []);
+
   return (
     <div className="App-background">
-      <div className="RPG">
-        {/*<Routes>*/}
-        {/*  <Route path='/' element={<Navigate to='/main'/>} />*/}
-        {/*  <Route path='/main' element={<Main/>} />*/}
-        {/*  <Route path='/square' element={<Square/>} />*/}
-        {/*  <Route path='/home' element={<Home/>} />*/}
-        {/*</Routes>*/}
-        <SignUp/>
-      </div>
     </div>
   );
 }

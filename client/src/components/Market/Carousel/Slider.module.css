@@ -1,0 +1,43 @@
+/* .Slider {
+  width: 70vw;
+  height: 14vw;
+  background-color: #000000;
+  position: relative;
+  font-size: 2vw;
+}
+.track {
+    width: 100%;
+    height: 100%;
+    background-color: cadetblue;
+    display: flex;
+    overflow: hidden;
+  }
+
+.item {
+    min-width: 100px;
+    width: 300px;
+    height: 100%;
+    background-color: rgb(250, 248, 241);
+    transition: .1s;
+    border: 1px solid black;
+  }
+.button {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  border: 1px solid rgb(156, 19, 19);
+}
+
+.button_prev {
+  left: 10px;
+  top:35%
+}
+
+
+.button_next {
+  right: 10px;
+  top:35%
+} */

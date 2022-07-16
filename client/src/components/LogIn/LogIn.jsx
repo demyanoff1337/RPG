@@ -13,16 +13,6 @@ const LogIn = () => {
     e.preventDefault();
     dispatch(loginThunk(mail, password, navigate));
   };
-  return (
-    <div>
-      <form onSubmit={loginHandler}>
-        <label>EMAIL</label>
-        <input onChange={(e) => setMail(e.target.value)} value={mail} type="text"/>
-        <label>PASSWORD</label>
-        <input onChange={(e) => setPassword(e.target.value)} value={password} type="password"/>
-        <button type="submit">Вход</button>
-      </form>
-    </div>
   );
 };
 
